@@ -1,0 +1,11 @@
+use myTube;
+db.createUser({
+    user: 'myTube',
+    pwd: 'myTube',
+    roles: [ 'readWrite', 'dbAdmin' ]
+});
+db.addUser({
+    user: 'myTube',
+    pwd: 'myTube',
+    roles: [ 'readWrite', 'dbAdmin' ]
+});

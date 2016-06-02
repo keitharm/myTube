@@ -11,7 +11,7 @@ var videoSchema = mongoose.Schema({
     unique: true
   },
   channelID: {
-    type: Number,
+    type: Number
   },
   name: {
     type: String
@@ -25,9 +25,10 @@ var videoSchema = mongoose.Schema({
 });
 
 videoSchema.pre('save', function(next) {
-
+  var self = this;
   Counters.getNextIndex('videos', true, function(data) {
     self.id = data.index;
+    next();
   });
 });
 

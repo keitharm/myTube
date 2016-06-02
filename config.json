@@ -3,6 +3,7 @@
   "socket": 8080,
   "db": {
     "host": "localhost",
+    "database": "myTube",
     "username": "myTube",
     "password": "myTube"
   }

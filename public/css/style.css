@@ -28,6 +28,10 @@ html {
   overflow: scroll;
 }
 
+.subscriptionBox::-webkit-scrollbar { 
+    display: none; 
+}
+
 .videoTile {
   display: inline-block;
   margin-right: 10px;
