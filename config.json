@@ -6,5 +6,6 @@
     "database": "myTube",
     "username": "myTube",
     "password": "myTube"
-  }
+  },
+  "updateInterval": 300
 }

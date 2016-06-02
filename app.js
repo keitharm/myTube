@@ -67,5 +67,10 @@ app.use(function(err, req, res, next) {
   });
 });
 
+setInterval(checkVids, config.updateInterval*1000);
+
+function checkVids() {
+  console.log("Performing video check update");
+}
 
 module.exports = app;

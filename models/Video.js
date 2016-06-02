@@ -8,12 +8,20 @@ var videoSchema = mongoose.Schema({
   },
   youtubeID: {
     type: String,
-    unique: true
   },
-  channelID: {
-    type: Number
+  published: {
+    type: Date
   },
-  name: {
+  channelTitle: {
+    type: "String"
+  },
+  channelId: {
+    type: "String"
+  },
+  channelName: {
+    type: "String"
+  },
+  title: {
     type: String
   },
   description: {

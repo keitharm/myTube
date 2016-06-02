@@ -1,4 +1,3 @@
-//var DropDownMenu = require('./DropDownMenu');
 var VideoTile = require('./VideoTile')
 var SubscriptionBox = React.createClass({
   getInitialState: function() {
@@ -7,17 +6,16 @@ var SubscriptionBox = React.createClass({
     };
   },
 
-  componentDidMount: function() {
-    this.serverRequest = $.get('/api/videos', function (vids) {
-      var videos = [];
+  vidClick: function(index) {
+    console.log('Video: ' + this.refs['item' + index]);
+  },
 
-      vids.forEach(vid => {
-        videos.push(<VideoTile
-          name={vid.name}
-          thumb={vid.thumbnail}
-          id={vid.youtubeID}
-        />);
-      });
+  authorClick: function(index) {
+    console.log('Author: ' + this.refs['item' + index]);
+  },
+
+  componentDidMount: function() {
+    this.serverRequest = $.get('/api/videos', function (videos) {
       this.setState({
         videos
       });
@@ -25,10 +23,23 @@ var SubscriptionBox = React.createClass({
   },
 
   render: function() {
-
     return (
       <div className="subscriptionBox">
-        {this.state.videos}
+        {this.state.videos.map(function(item, i) {
+          return (
+            <VideoTile
+              vidClick={this.vidClick.bind(this, i)}
+              authorClick={this.authorClick.bind(this, i)}
+              key={i}
+              title={item.title.slice(0, 40) + "..."}
+              thumb={item.thumbnail}
+              channelName={item.channelName}
+              info={item.info}
+              id={item.youtubeID}
+              ref={'item' + i} 
+            />
+          );
+        }, this)}
       </div>
     )
   }

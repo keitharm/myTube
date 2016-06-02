@@ -43,18 +43,23 @@ html {
 .videoTile .picture img {
   width: 196px;
   height: 110px;
+  cursor: pointer;
 }
 
 .videoTile .name {
   margin-left: 5px;
   font-weight: 400;
   font-size: 10pt;
+  color: black;
+  cursor: pointer;
 }
 
 .videoTile .author {
   margin-left: 5px;
   font-weight: 200;
   font-size: 8pt;
+  color: skyblue;
+  cursor: pointer;
 }
 
 .videoTile .info {
