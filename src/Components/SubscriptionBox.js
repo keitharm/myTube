@@ -7,7 +7,10 @@ var SubscriptionBox = React.createClass({
   },
 
   vidClick: function(index) {
-    console.log('Video: ' + this.refs['item' + index]);
+    $.post('/api/watched', {youtubeID: this.refs['item' + index].props.id}, function () {
+      var self = this;
+      this.setState({videos: this.state.videos.filter(item => item.youtubeID !== self.refs['item' + index].props.id)});
+    }.bind(this));
   },
 
   authorClick: function(index) {

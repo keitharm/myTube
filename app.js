@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var compress     = require('compression');
 var cors         = require('cors');
+var async        = require('async');
 var config       = require('./config');
 var io           = require('socket.io')(config.socket);
 require('./socket')(io);
@@ -66,11 +67,18 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+currentDownload = {};
 
 setInterval(checkVids, config.updateInterval*1000);
 
 function checkVids() {
   console.log("Performing video check update");
+  //queue
 }
+
+downloadQueue = async.queue(function(task, callback) {
+    callback();
+  }
+}, config.simultaneousDownloads);
 
 module.exports = app;

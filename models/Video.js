@@ -8,6 +8,7 @@ var videoSchema = mongoose.Schema({
   },
   youtubeID: {
     type: String,
+    unique: true
   },
   published: {
     type: Date
@@ -29,6 +30,14 @@ var videoSchema = mongoose.Schema({
   },
   thumbnail: {
     type: String
+  },
+  watched: {
+    type: Boolean,
+    default: false
+  },
+  processed: {
+    type: Boolean,
+    default: false
   }
 });
 

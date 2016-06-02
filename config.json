@@ -7,5 +7,6 @@
     "username": "myTube",
     "password": "myTube"
   },
-  "updateInterval": 300
+  "updateInterval": 300,
+  "simultaneousDownloads": 1
 }

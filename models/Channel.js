@@ -6,19 +6,17 @@ var channelSchema = mongoose.Schema({
     type: Number,
     unique: true
   },
-  youtubeID: {
+  channelName: {
     type: String,
     unique: true
-  },
-  name: {
-    type: String,
   }
 });
 
 channelSchema.pre('save', function(next) {
-
+  var self = this;
   Counters.getNextIndex('channels', true, function(data) {
     self.id = data.index;
+    next();
   });
 });
 
