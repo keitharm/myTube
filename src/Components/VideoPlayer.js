@@ -7,6 +7,20 @@ var VideoPlayer = React.createClass({
       style: {display: ""},
     }
   },
+  showVideo: function(id) {
+    var src = document.getElementById('videoSrc');
+    src.src = "/vids/" + id + ".mp4";
+    var vid = document.getElementById('video');
+    vid.load();
+    vid.addEventListener('canplay', function() {
+      this.setState({
+        id: id,
+        title: "",
+        style: {display: ""},
+      });
+    }.bind(this));
+
+  },
   componentDidMount: function() {
     var video = document.getElementById('video');
     document.onkeypress = function(evt) {
@@ -57,16 +71,16 @@ var VideoPlayer = React.createClass({
       }
     }.bind(this);
   },
-  hideModal: function() {
+  hideVideo: function() {
     this.setState({style: {display: "none"}});
     video.pause();
   },
   render: function() {
     return (
-      <div id="modal" style={this.state.style} onClick={this.hideModal} className="modalbg">
+      <div id="modal" style={this.state.style} onClick={this.hideVideo} className="modalbg">
         <div className="videoPlayer">
           <video id='video' controls preload="metadata" width="800" height="600" poster="http://img.youtube.com/vi/bSEXPzkO3J4/mqdefault.jpg">
-            <source src={"vids/" + this.state.id + ".mp4"} type="video/mp4" />
+            <source id='videoSrc' src={"vids/" + this.state.id + ".mp4"} type="video/mp4" />
             <p>Please use a modern browser to view this video.</p>
           </video>
         </div>

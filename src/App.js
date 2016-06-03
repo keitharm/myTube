@@ -19,9 +19,11 @@ var App = React.createClass({
     }
   },
   viewVideo: function(e) {
-    console.log(e);
-
     this.setState({currentVideo: e, playVideo: true});
+    if (this.refs.videoPlayer !== undefined) {
+      this.refs.videoPlayer.showVideo(this.refs.SubscriptionBox.state.videos[e].youtubeID);
+      console.log(this.refs.SubscriptionBox.state.videos);
+    }
   },
   updateStatus: function(txt) {
     clearInterval(this.state.statusTimeout);
@@ -54,7 +56,7 @@ var App = React.createClass({
   },
   render: function() {
     if (this.state.playVideo) {
-      videoPlayer = <VideoPlayer getCurrentVid={this.currentVideo} />
+      videoPlayer = <VideoPlayer ref="videoPlayer" getCurrentVid={this.currentVideo} />
     } else {
       videoPlayer = "";
     }
@@ -70,7 +72,7 @@ var App = React.createClass({
         <div className="row myTube">
           <span className="title">Subscriptions</span>
           <div className="container-fluid">
-            <SubscriptionBox socket={this.state.socket} updateStatus={this.updateStatus} viewVideo={this.viewVideo} />
+            <SubscriptionBox socket={this.state.socket} ref="SubscriptionBox" updateStatus={this.updateStatus} viewVideo={this.viewVideo} />
           </div>
           <span className="title">Channels</span>
           <div className="container-fluid">
