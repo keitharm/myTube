@@ -9,5 +9,6 @@
   },
   "updateInterval": 300,
   "simultaneousDownloads": 1,
-  "apikey": ""
+  "apikey": "",
+  "quality": "bestvideo[ext!=webm]+bestaudio[ext!=webm]/best[ext!=webm]"
 }

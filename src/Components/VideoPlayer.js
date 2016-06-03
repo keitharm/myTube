@@ -23,6 +23,15 @@ var VideoPlayer = React.createClass({
   },
   componentDidMount: function() {
     var video = document.getElementById('video');
+    video.onclick = function(e) {
+      console.log('blah');
+      e.stopPropagation();
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    }
     document.onkeypress = function(evt) {
       if (document.activeElement.id !== "channel") {
         evt.preventDefault();

@@ -110,6 +110,10 @@ html {
 }
 
 .videoPlayer {
+  position: fixed;
+  width: 75%;
+  left: 50%;
+  margin-left: -37.5%;
   z-index: 10;
   text-align: center;
 }

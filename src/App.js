@@ -2,7 +2,6 @@ var SubscriptionBox = require('./Components/SubscriptionBox');
 var ChannelBox = require('./Components/ChannelBox');
 var VideoPlayer = require('./Components/VideoPlayer');
 var config = require('../config.json');
-var keyMirror = require('keyMirror');
 
 var App = React.createClass({
   addChannel: function(e) {
