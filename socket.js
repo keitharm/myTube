@@ -2,8 +2,18 @@ var spawn     = require('child_process').spawn;
 var spawnSync = require('child_process').spawnSync;
 var fs        = require('fs');
 
-module.exports = function(io) {
+module.exports = function(io, currentDownload) {
   io.on('connection', function (socket) {
+    var oldID = null;
+    setInterval(function() {
+      if (Object.keys(currentDownload).length !== 0 && currentDownload.percent !== undefined) {
+        if (oldID !== currentDownload.task.youtubeID) {
+          io.emit('downloadStart', null);
+          oldID = currentDownload.task.youtubeID
+        }
+        io.emit('download', currentDownload);
+      }
+    }, 1000);
     socket.on('downloadVid', function (data) {
         var dl = spawn('youtube-dl', [data, '-f', 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best', '-o', 'public/vids/%(id)s.%(ext)s']);
 

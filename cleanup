@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo -e "use myTube;\ndb.dropDatabase();\n" | mongo
+rm public/vids/*

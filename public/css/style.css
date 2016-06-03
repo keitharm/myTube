@@ -6,9 +6,13 @@ html {
 
 .header {
   font-size: 24pt;
-  margin-left: 10;
-  margin-top: 10;
+  margin-left: 10px;
+  margin-top: 10px;
+}
 
+.header .status{
+  margin-top: 10px;
+  font-size: 16pt;
 }
 
 .myTube {
@@ -32,29 +36,45 @@ html {
     display: none; 
 }
 
-.videoTile {
+.channelBox {
+  display: block;
+  position: relative;
+  margin: 20px auto 20px auto;
+
+  width: 100%;
+  height: 375px;
+  overflow: scroll;
+}
+
+.channelBox::-webkit-scrollbar { 
+    display: none; 
+}
+
+.tile {
   display: inline-block;
   margin-right: 10px;
   margin-bottom: 12px;
   width: 196px;
   height: 175px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.videoTile .picture img {
+.tile .picture img {
   width: 196px;
   height: 110px;
   cursor: pointer;
 }
 
-.videoTile .name {
+.tile .name {
   margin-left: 5px;
   font-weight: 400;
-  font-size: 10pt;
+  font-size: 12pt;
   color: black;
   cursor: pointer;
 }
 
-.videoTile .author {
+.tile .author {
   margin-left: 5px;
   font-weight: 200;
   font-size: 8pt;
@@ -62,7 +82,7 @@ html {
   cursor: pointer;
 }
 
-.videoTile .info {
+.tile .info {
   margin-left: 5px;
   font-weight: 200;
   font-size: 8pt;
@@ -73,4 +93,23 @@ html {
   top: 5px;
   left: 5px;
   font-size: 16pt;
+}
+
+.app {
+  position: relative;
+}
+
+.modalbg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  z-index: 1000;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.videoPlayer {
+  z-index: 10;
+  text-align: center;
 }

@@ -1,7 +1,7 @@
 var VideoTile = React.createClass({
   render: function() {
     return (
-      <div className="videoTile">
+      <div className="tile">
         <div className="picture" onClick={this.props.vidClick}><img src={this.props.thumb} /></div>
         <div className="name" onClick={this.props.vidClick}>{this.props.title}</div>
         <div className="author" onClick={this.props.authorClick}>{this.props.channelName}</div>

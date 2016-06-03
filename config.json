@@ -8,5 +8,6 @@
     "password": "myTube"
   },
   "updateInterval": 300,
-  "simultaneousDownloads": 1
+  "simultaneousDownloads": 1,
+  "apikey": ""
 }

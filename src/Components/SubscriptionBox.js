@@ -2,26 +2,42 @@ var VideoTile = require('./VideoTile')
 var SubscriptionBox = React.createClass({
   getInitialState: function() {
     return {
-      videos: []
+      videos: [],
+      socket: this.props.socket,
+      updateStatus: this.props.updateStatus
     };
   },
 
   vidClick: function(index) {
-    $.post('/api/watched', {youtubeID: this.refs['item' + index].props.id}, function () {
-      var self = this;
-      this.setState({videos: this.state.videos.filter(item => item.youtubeID !== self.refs['item' + index].props.id)});
-    }.bind(this));
+    // $.post('/api/watched', {youtubeID: this.refs['item' + index].props.id}, function () {
+    //   var self = this;
+    //   this.setState({videos: this.state.videos.filter(item => item.youtubeID !== self.refs['item' + index].props.id)});
+    // }.bind(this));
+    this.props.viewVideo(index);
   },
 
   authorClick: function(index) {
     console.log('Author: ' + this.refs['item' + index]);
   },
 
-  componentDidMount: function() {
-    this.serverRequest = $.get('/api/videos', function (videos) {
+  requestVideos: function() {
+    this.serverRequest = $.get('/api/video', function (videos) {
       this.setState({
         videos
       });
+    }.bind(this));
+  },
+
+  componentDidMount: function() {
+    this.requestVideos();
+    this.state.socket.on('downloadStart', function() {
+      this.requestVideos();
+    }.bind(this));
+    this.state.socket.on('download', function(data) {
+      console.log(data);
+      if (data.percent !== undefined) {
+        this.state.updateStatus("Downloading " + data.task.title.slice(0, 25) + "... | " + data.percent + "% of " + data.total + " @ " + data.rate + "/s | ETA: " + data.eta);
+      }
     }.bind(this));
   },
 

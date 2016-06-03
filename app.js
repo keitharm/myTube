@@ -1,3 +1,4 @@
+var config       = require('./config');
 var express      = require('express');
 var path         = require('path');
 var favicon      = require('serve-favicon');
@@ -7,16 +8,19 @@ var bodyParser   = require('body-parser');
 var compress     = require('compression');
 var cors         = require('cors');
 var async        = require('async');
-var config       = require('./config');
 var io           = require('socket.io')(config.socket);
-require('./socket')(io);
 
-var index = require('./routes/index');
-var db = require('./models/db');
+var currentDownload = {};
 
-Video    = require('./models/Video');
-Channel  = require('./models/Channel');
-Counters = require('./models/Counters');
+require('./socket')(io, currentDownload);
+
+var db       = require('./models/db')(config);
+var Counters = require('./models/Counters')(db);
+var Video    = require('./models/Video')(db, Counters);
+var Channel  = require('./models/Channel')(db, Counters);
+
+var yt    = require('./yt')(Video, Channel, Counters, config, currentDownload);
+var index = require('./routes/index')(Video, Channel, Counters, yt);
 
 var app = express();
 
@@ -45,40 +49,21 @@ app.use(function(req, res, next) {
 });
 
 // error handlers
-
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
+    res.send(err.message).status(err.status || 500);
   });
 }
 
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+  res.send(err.message).status(err.status || 500);
 });
-currentDownload = {};
 
-setInterval(checkVids, config.updateInterval*1000);
 
-function checkVids() {
-  console.log("Performing video check update");
-  //queue
-}
-
-downloadQueue = async.queue(function(task, callback) {
-    callback();
-  }
-}, config.simultaneousDownloads);
+setInterval(yt.checkVids, config.updateInterval*1000);
 
 module.exports = app;

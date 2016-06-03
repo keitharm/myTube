@@ -1,25 +1,31 @@
-var mongoose = require('mongoose');
 var deasync  = require('deasync');
 
-var channelSchema = mongoose.Schema({
-  id: {
-    type: Number,
-    unique: true
-  },
-  channelName: {
-    type: String,
-    unique: true
-  }
-});
-
-channelSchema.pre('save', function(next) {
-  var self = this;
-  Counters.getNextIndex('channels', true, function(data) {
-    self.id = data.index;
-    next();
+module.exports = function(mongoose, Counters) {
+  var channelSchema = mongoose.Schema({
+    id: {
+      type: Number,
+      unique: true
+    },
+    channelName: {
+      type: String,
+      unique: true
+    },
+    channelID: {
+      type: String,
+      unique: true
+    },
+    thumbnail: {
+      type: String
+    }
   });
-});
 
-var Channel = mongoose.model('Channel', channelSchema);
+  channelSchema.pre('save', function(next) {
+    var self = this;
+    Counters.getNextIndex('channels', true, function(data) {
+      self.id = data.index;
+      next();
+    });
+  });
 
-module.exports = Channel;
+  return mongoose.model('Channel', channelSchema);
+};
