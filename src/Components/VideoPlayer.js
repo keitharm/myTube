@@ -96,6 +96,19 @@ var VideoPlayer = React.createClass({
         video.controls = true;
       }
     }.bind(this);
+
+    document.onkeydown = function(evt) {
+      evt = evt || window.event;
+      var isEscape = false;
+      if ("key" in evt) {
+          isEscape = evt.key == "Escape";
+      } else {
+          isEscape = evt.keyCode == 27;
+      }
+      if (isEscape) {
+        this.hideVideo()
+      }
+    }.bind(this);
   },
   hideVideo: function() {
     this.setState({style: {display: "none"}});
