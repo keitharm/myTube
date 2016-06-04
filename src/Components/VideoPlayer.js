@@ -7,6 +7,7 @@ var VideoPlayer = React.createClass({
     }
   },
   showVideo: function(video) {
+    var self = this;
     var src = document.getElementById('videoSrc');
     src.src = "/vids/" + video.youtubeID + ".mp4";
     var vid = document.getElementById('video');
@@ -19,6 +20,22 @@ var VideoPlayer = React.createClass({
         style: {display: ""},
       });
     }.bind(this));
+
+    vid.addEventListener('progress', function() {
+      var range = 0;
+      var bf = this.buffered;
+      var time = this.currentTime;
+
+      while(!(bf.start(range) <= time && time <= bf.end(range))) {
+          range += 1;
+      }
+      var loadStartPercentage = bf.start(range) / this.duration;
+      var loadEndPercentage = bf.end(range) / this.duration;
+      var loadPercentage = loadEndPercentage - loadStartPercentage;
+      self.setState({
+        loadedPercent: (Math.round(loadPercentage*10000)/100).toFixed(2) + "%"
+      });
+    });
 
   },
   componentDidMount: function() {
@@ -89,6 +106,7 @@ var VideoPlayer = React.createClass({
       <div id="modal" style={this.state.style} onClick={this.hideVideo} className="modalbg">
         <div className="videoPlayer">
           <h1 className="videoTitle">{this.state.title}</h1>
+          <p className="videoTitle">Loaded {this.state.loadedPercent}</p>
           <div className="videoPanel">
             <button type="button" className="btn btn-danger">Delete Video</button>
           </div>
