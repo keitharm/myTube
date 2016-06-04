@@ -1,20 +1,20 @@
 var VideoPlayer = React.createClass({
   getInitialState: function() {
-    console.log(this.props.getCurrentVid());
     return {
-      id: "2AzFd3KdHCI",
+      id: "",
       title: "",
-      style: {display: ""},
+      style: {display: "none"},
     }
   },
-  showVideo: function(id) {
+  showVideo: function(video) {
     var src = document.getElementById('videoSrc');
-    src.src = "/vids/" + id + ".mp4";
+    src.src = "/vids/" + video.youtubeID + ".mp4";
     var vid = document.getElementById('video');
     vid.load();
     vid.addEventListener('canplay', function() {
+      vid.play();
       this.setState({
-        id: id,
+        id: video.youtubeID,
         title: "",
         style: {display: ""},
       });
@@ -88,7 +88,7 @@ var VideoPlayer = React.createClass({
     return (
       <div id="modal" style={this.state.style} onClick={this.hideVideo} className="modalbg">
         <div className="videoPlayer">
-          <video id='video' controls preload="metadata" width="800" height="600" poster="http://img.youtube.com/vi/bSEXPzkO3J4/mqdefault.jpg">
+          <video id='video' controls preload="metadata" width="800" height="600">
             <source id='videoSrc' src={"vids/" + this.state.id + ".mp4"} type="video/mp4" />
             <p>Please use a modern browser to view this video.</p>
           </video>

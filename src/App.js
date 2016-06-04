@@ -18,11 +18,8 @@ var App = React.createClass({
     }
   },
   viewVideo: function(e) {
-    this.setState({currentVideo: e, playVideo: true});
-    if (this.refs.videoPlayer !== undefined) {
-      this.refs.videoPlayer.showVideo(this.refs.SubscriptionBox.state.videos[e].youtubeID);
-      console.log(this.refs.SubscriptionBox.state.videos);
-    }
+    this.refs.videoPlayer.showVideo(this.refs.SubscriptionBox.state.videos[e]);
+    //console.log(this.refs.SubscriptionBox.state.videos);
   },
   updateStatus: function(txt) {
     clearInterval(this.state.statusTimeout);
@@ -40,9 +37,7 @@ var App = React.createClass({
     return {
       status: "ready",
       channelText: "",
-      currentVideo: {},
-      showModal: false,
-      playVideo: false
+      showModal: false
     };
   },
   componentWillMount: function() {
@@ -50,15 +45,8 @@ var App = React.createClass({
   },
   componentDidMount: function() {
   },
-  currentVideo: function() {
-    return this.state.currentVideo;
-  },
   render: function() {
-    if (this.state.playVideo) {
-      videoPlayer = <VideoPlayer ref="videoPlayer" getCurrentVid={this.currentVideo} />
-    } else {
-      videoPlayer = "";
-    }
+    videoPlayer = <VideoPlayer ref="videoPlayer" />
 
     return (
       <div className="app container-fluid">
