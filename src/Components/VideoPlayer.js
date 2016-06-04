@@ -15,7 +15,7 @@ var VideoPlayer = React.createClass({
       vid.play();
       this.setState({
         id: video.youtubeID,
-        title: "",
+        title: video.title,
         style: {display: ""},
       });
     }.bind(this));
@@ -88,7 +88,11 @@ var VideoPlayer = React.createClass({
     return (
       <div id="modal" style={this.state.style} onClick={this.hideVideo} className="modalbg">
         <div className="videoPlayer">
-          <video id='video' controls preload="metadata" width="800" height="600">
+          <h1 className="videoTitle">{this.state.title}</h1>
+          <div className="videoPanel">
+            <button type="button" className="btn btn-danger">Delete Video</button>
+          </div>
+          <video id='video' controls preload="metadata" width="800" height="450">
             <source id='videoSrc' src={"vids/" + this.state.id + ".mp4"} type="video/mp4" />
             <p>Please use a modern browser to view this video.</p>
           </video>

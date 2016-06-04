@@ -78,7 +78,7 @@ module.exports = function(Video, Channel, Counters, config, currentDownload) {
         // Update video status to processing
         Video.update({youtubeID: task.youtubeID}, {$set: {processing: true}}, function() {
           var spawn = require('child_process').spawn;
-          var ytjob = spawn('youtube-dl', [task.youtubeID, '-f', config.quality, '-o', 'public/vids/%(id)s']);
+          var ytjob = spawn('youtube-dl', [task.youtubeID, '-f', config.quality, '-o', 'public/vids/%(id)s.%(ext)s']);
           currentDownload.task = task;
           ytjob.stdout.on('data', (data) => {
             //console.log(`stdout: ${data}`);
