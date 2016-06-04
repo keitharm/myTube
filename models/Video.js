@@ -31,7 +31,7 @@ module.exports = function(mongoose, Counters) {
     thumbnail: {
       type: String
     },
-    watched: {
+    deleted: {
       type: Boolean,
       default: false
     },

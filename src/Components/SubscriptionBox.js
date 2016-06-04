@@ -21,7 +21,7 @@ var SubscriptionBox = React.createClass({
   },
 
   requestVideos: function() {
-    this.serverRequest = $.get('/api/video', function (videos) {
+    $.get('/api/video', function (videos) {
       this.setState({
         videos
       });
@@ -55,7 +55,8 @@ var SubscriptionBox = React.createClass({
               channelName={item.channelName}
               info={item.info}
               id={item.youtubeID}
-              ref={'item' + i} 
+              ref={'item' + i}
+              deleteVideo={this.props.deleteVideo}
             />
           );
         }, this)}

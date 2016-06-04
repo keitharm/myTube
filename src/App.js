@@ -40,17 +40,26 @@ var App = React.createClass({
       showModal: false
     };
   },
+  deleteVideo: function(e) {
+    // Delete videoconsole.log(e);
+    var self = this;
+    $.ajax({
+      url: '/api/video/' + e,
+      type: 'DELETE',
+      success: function(result) {
+        self.refs.SubscriptionBox.requestVideos();
+      }
+    });
+  },
   componentWillMount: function() {
     this.setState({socket: io.connect(":" + config.socket)});
   },
   componentDidMount: function() {
   },
   render: function() {
-    videoPlayer = <VideoPlayer ref="videoPlayer" />
-
     return (
       <div className="app container-fluid">
-        {videoPlayer}
+        <VideoPlayer ref="videoPlayer" />
         <div className="row header">
           <div className="col-xs-2 col-md-1"><a href="/">myTube</a></div>
           <div className="col-xs-5 col-md-8 status">Status: <span id="statusText">{this.state.status}</span></div>
@@ -59,7 +68,7 @@ var App = React.createClass({
         <div className="row myTube">
           <span className="title">Subscriptions</span>
           <div className="container-fluid">
-            <SubscriptionBox socket={this.state.socket} ref="SubscriptionBox" updateStatus={this.updateStatus} viewVideo={this.viewVideo} />
+            <SubscriptionBox socket={this.state.socket} ref="SubscriptionBox" updateStatus={this.updateStatus} viewVideo={this.viewVideo} deleteVideo={this.deleteVideo}/>
           </div>
           <span className="title">Channels</span>
           <div className="container-fluid">

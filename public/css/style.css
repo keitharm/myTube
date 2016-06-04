@@ -124,3 +124,10 @@ html {
   margin-top: 15px;
   margin-bottom: 15px;
 }
+
+.deleteButton {
+  opacity: .8;
+  margin-left: 45px;
+  position: absolute;
+  margin-top: -34px;
+}

@@ -4,8 +4,22 @@ var router   = express.Router();
 
 module.exports = function(Video, Channel, Counters, yt) {
   router.get('/video', function(req, res, next) {
-    Video.find({$or:[{processed: true}, {processing: true}]}, {}, {sort: "-published"}, function(err, docs) {
+    Video.find({$and: [{deleted: false}, {$or:[{processed: true}, {processing: true}]}]}, {}, {sort: "-published"}, function(err, docs) {
       res.send(docs);
+    });
+  });
+
+  router.delete('/video/:id', function(req, res, next) {
+    Video.find({youtubeID: req.params.id}, function(err, docs) {
+      if (err) {
+        res.send('Error: video not found').status(400);
+        return;
+      } else {
+        fs.unlinkSync('./public/vids/' + req.params.id + '.mp4');
+        Video.update({youtubeID: req.params.id}, {deleted: true}, function(err, docs) {
+          res.sendStatus(200);
+        });
+      }
     });
   });
 

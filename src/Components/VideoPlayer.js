@@ -121,7 +121,6 @@ var VideoPlayer = React.createClass({
           <h1 className="videoTitle">{this.state.title}</h1>
           <p className="videoTitle">Loaded {this.state.loadedPercent}</p>
           <div className="videoPanel">
-            <button type="button" className="btn btn-danger">Delete Video</button>
           </div>
           <video id='video' controls preload="metadata" width="800" height="450">
             <source id='videoSrc' src={"vids/" + this.state.id + ".mp4"} type="video/mp4" />
