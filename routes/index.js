@@ -4,7 +4,7 @@ var router   = express.Router();
 
 module.exports = function(Video, Channel, Counters, yt) {
   router.get('/video', function(req, res, next) {
-    Video.find({$or:[{processed: true}, {processing: true}]}, {}, {sort: "id"}, function(err, docs) {
+    Video.find({$or:[{processed: true}, {processing: true}]}, {}, {sort: "-id"}, function(err, docs) {
       res.send(docs);
     });
   });
