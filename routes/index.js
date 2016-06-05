@@ -15,7 +15,15 @@ module.exports = function(Video, Channel, Counters, yt) {
         res.send('Error: video not found').status(400);
         return;
       } else {
-        fs.unlinkSync('./public/vids/' + req.params.id + '.mp4');
+        try {
+          fs.unlinkSync('./public/vids/' + req.params.id + '.mp4');
+        } catch(e) {
+          require("glob").glob('./public/vids/' + req.params.id + '*.part', function (er, files) {
+            files.forEach(file => {
+              fs.unlinkSync(file);
+            });
+          });
+        }
         Video.update({youtubeID: req.params.id}, {deleted: true}, function(err, docs) {
           res.sendStatus(200);
         });
