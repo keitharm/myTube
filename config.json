@@ -4,7 +4,7 @@
   "updateInterval": 300,
   "simultaneousDownloads": 1,
   "apikey": "",
-  "quality": "bestvideo[ext!=webm]+bestaudio[ext!=webm]/best[ext!=webm]",
+  "quality": "299+140/298+140/137+140/136+140/bestvideo[ext!=webm]+bestaudio[ext!=webm]/best[ext!=webm]",
   "downloadDelay": 1800,
   "db": {
     "host": "localhost",
