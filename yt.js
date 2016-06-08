@@ -53,15 +53,15 @@ module.exports = function(Video, Channel, Counters, config, currentDownload) {
     checkVids: function() {
       var self = this;
       Channel.find({}, function(err, channels) {
-        //console.log(channels)
         channels.forEach(channel => {
           var vids = funcs.getRecentVids(channel.channelName, 5);
           async.eachLimit(vids, 1, function(vid, callback) {
             Video.find({youtubeID: vid.youtubeID}, function(err, docs) {
               if (docs.length === 0) {
                 Video.create(vid, function(err, doc) {
-                  console.log(err, doc);
-                  funcs.downloadQueue.push(doc);
+		  setTimeout(function() {
+	                  funcs.downloadQueue.push(doc);
+		  }, config.downloadDelay * 1000);
                   callback();
                 });
               } else {

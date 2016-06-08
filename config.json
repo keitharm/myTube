@@ -1,14 +1,15 @@
 {
   "port": 3000,
   "socket": 8080,
+  "updateInterval": 300,
+  "simultaneousDownloads": 1,
+  "apikey": "",
+  "quality": "bestvideo[ext!=webm]+bestaudio[ext!=webm]/best[ext!=webm]",
+  "downloadDelay": 1800,
   "db": {
     "host": "localhost",
     "database": "myTube",
     "username": "myTube",
     "password": "myTube"
-  },
-  "updateInterval": 300,
-  "simultaneousDownloads": 1,
-  "apikey": "",
-  "quality": "bestvideo[ext!=webm]+bestaudio[ext!=webm]/best[ext!=webm]"
+  }
 }

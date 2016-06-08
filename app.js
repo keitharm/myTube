@@ -65,5 +65,6 @@ app.use(function(err, req, res, next) {
 
 
 setInterval(yt.checkVids, config.updateInterval*1000);
+yt.checkVids();
 
 module.exports = app;
