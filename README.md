@@ -1,5 +1,8 @@
 # myTube: Youtube without the bloat
 
+![](http://i.imgur.com/Be2omEM.jpg)
+![](http://i.imgur.com/VjE94b5.jpg)
+
 ### About
 myTube is your own personalized Youtube outlet. Tell it which channels you want to subscribe to, and it will download the videos (using `youtube-dl` and `ffmpeg`) in the highest quality for your viewing pleasure. No more buffering, no more random quality downshifts, no more ads and other crap that you don't care about. The only thing you'll see is exactly what you subscribed to.
 
