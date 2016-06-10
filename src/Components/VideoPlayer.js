@@ -50,6 +50,9 @@ var VideoPlayer = React.createClass({
       }
     }
     document.onkeypress = function(evt) {
+      if ([32, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 102, 109].indexOf(evt.keyCode) !== -1) {
+        evt.preventDefault();
+      }
       if (document.activeElement.id !== "channel") {
         evt = evt || window.event;
         var charCode = evt.keyCode || evt.which;
@@ -60,22 +63,41 @@ var VideoPlayer = React.createClass({
         } else if (charCode === 48) {
           video.currentTime = 0;
         } else if (charCode === 102) {
-          if (video.requestFullscreen) {
-            video.requestFullscreen();
-          } else if (video.msRequestFullscreen) {
-            video.msRequestFullscreen();
-          } else if (video.mozRequestFullScreen) {
-            video.mozRequestFullScreen();
-          } else if (video.webkitRequestFullscreen) {
-            video.webkitRequestFullscreen();
+          // Showing full screen, so exit fullscreen
+          if (video.webkitDisplayingFullscreen || video.mozDisplayingFullscreen || video.msDisplayingFullscreen || video.displayingFullscreen) {
+            if (video.exitFscreen) {
+              video.exitFullscreen();
+            } else if (video.msRequestFullscreen) {
+              video.msExitFullscreen();
+            } else if (video.mozRequestFullScreen) {
+              video.mozExitFullScreen();
+            } else if (video.webkitRequestFullscreen) {
+              video.webkitExitFullscreen();
+            }
+          } else {
+            if (video.requestFullscreen) {
+              video.requestFullscreen();
+            } else if (video.msRequestFullscreen) {
+              video.msRequestFullscreen();
+            } else if (video.mozRequestFullScreen) {
+              video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) {
+              video.webkitRequestFullscreen();
+            }
           }
         // Space bar
-        } else if (charCode === 32) {
+        } else if (charCode === 32 || charCode === 107) {
           if (video.paused) {
             video.play();
           } else {
             video.pause();
           }
+        } else if (charCode === 109) {
+          video.muted = !video.muted;
+        } else if (charCode === 106) {
+          video.currentTime -= 5;
+        } else if (charCode === 108) {
+          video.currentTime += 5;
         }
 
         // Hack to make controls show up when you manipulate time
@@ -86,6 +108,9 @@ var VideoPlayer = React.createClass({
 
     document.onkeydown = function(evt) {
       evt = evt || window.event;
+      if ([27, 37, 38, 39, 40].indexOf(evt.keyCode) !== -1) {
+        evt.preventDefault();
+      }
       var isEscape = false;
       if ("key" in evt) {
           isEscape = evt.key == "Escape";
@@ -98,14 +123,22 @@ var VideoPlayer = React.createClass({
       if (evt.shiftKey) {
         if (evt.keyCode === 37) {
           video.currentTime -= 10;
+        } else if (evt.keyCode === 38) {
+          video.volume = video.volume < .9 ? Number((video.volume + .1).toFixed(2)) : 1;
         } else if (evt.keyCode === 39) {
           video.currentTime += 10;
+        } else if (evt.keyCode === 40) {
+          video.volume = video.volume > .1 ? Number((video.volume - .1).toFixed(2)) : 0;
         }
       } else {
         if (evt.keyCode === 37) {
           video.currentTime -= 5;
+        } else if (evt.keyCode === 38) {
+          video.volume = video.volume < .95 ? Number((video.volume + .05).toFixed(2)) : 1;
         } else if (evt.keyCode === 39) {
           video.currentTime += 5;
+        } else if (evt.keyCode === 40) {
+          video.volume = video.volume > .05 ? Number((video.volume - .05).toFixed(2)) : 0;
         }
       }
 
