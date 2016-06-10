@@ -51,30 +51,14 @@ var VideoPlayer = React.createClass({
     }
     document.onkeypress = function(evt) {
       if (document.activeElement.id !== "channel") {
-        evt.preventDefault();
         evt = evt || window.event;
         var charCode = evt.keyCode || evt.which;
         var charStr = String.fromCharCode(charCode);
         if (charCode >= 49 && charCode <= 57) {
-          video.currentTime += Math.abs(48-charCode);
+          video.currentTime = ~~(video.duration*((charCode-48)/10));
+        // 0 reset to start of video
         } else if (charCode === 48) {
-          video.currentTime += 10;
-        } else if (charCode >= 33 && charCode <= 36 && charCode != 34) {
-          video.currentTime -= Math.abs(32-charCode);
-        } else if (charCode === 64) {
-          video.currentTime -= 2
-        } else if (charCode === 37) {
-          video.currentTime -= 5;
-        } else if (charCode === 94) {
-          video.currentTime -= 6;
-        } else if (charCode === 38) {
-          video.currentTime -= 7
-        } else if (charCode === 42) {
-          video.currentTime -= 8
-        } else if (charCode === 40) {
-          video.currentTime -= 9
-        } else if (charCode === 41) {
-          video.currentTime -= 10
+          video.currentTime = 0;
         } else if (charCode === 102) {
           if (video.requestFullscreen) {
             video.requestFullscreen();
@@ -85,6 +69,7 @@ var VideoPlayer = React.createClass({
           } else if (video.webkitRequestFullscreen) {
             video.webkitRequestFullscreen();
           }
+        // Space bar
         } else if (charCode === 32) {
           if (video.paused) {
             video.play();
@@ -92,6 +77,8 @@ var VideoPlayer = React.createClass({
             video.pause();
           }
         }
+
+        // Hack to make controls show up when you manipulate time
         video.controls = false;
         video.controls = true;
       }
@@ -108,6 +95,23 @@ var VideoPlayer = React.createClass({
       if (isEscape) {
         this.hideVideo()
       }
+      if (evt.shiftKey) {
+        if (evt.keyCode === 37) {
+          video.currentTime -= 10;
+        } else if (evt.keyCode === 39) {
+          video.currentTime += 10;
+        }
+      } else {
+        if (evt.keyCode === 37) {
+          video.currentTime -= 5;
+        } else if (evt.keyCode === 39) {
+          video.currentTime += 5;
+        }
+      }
+
+      // Hack to make controls show up when you manipulate time
+      video.controls = false;
+      video.controls = true;
     }.bind(this);
   },
   hideVideo: function() {
