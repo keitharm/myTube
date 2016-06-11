@@ -50,10 +50,10 @@ var VideoPlayer = React.createClass({
       }
     }
     document.onkeypress = function(evt) {
-      if ([32, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 102, 109].indexOf(evt.keyCode) !== -1) {
-        evt.preventDefault();
-      }
       if (document.activeElement.id !== "channel") {
+        if ([32, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 102, 109].indexOf(evt.keyCode) !== -1) {
+          evt.preventDefault();
+        }
         evt = evt || window.event;
         var charCode = evt.keyCode || evt.which;
         var charStr = String.fromCharCode(charCode);
