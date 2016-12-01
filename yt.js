@@ -5,10 +5,10 @@ var request      = require('request');
 
 module.exports = function(Video, Channel, Counters, config, currentDownload) {
   var funcs = {
-    getChannelInfo: function(channel) {
+    getChannelInfo: function(channelID) {
       var info = {};
       var done = false;
-      request("https://www.googleapis.com/youtube/v3/channels?key=" + config.apikey + "&forUsername=" + channel + "&part=snippet", function (error, response, body) {
+      request("https://www.googleapis.com/youtube/v3/channels?key=" + config.apikey + "&id=" + channelID + "&part=snippet", function (error, response, body) {
         if (!error && response.statusCode == 200) {
           info = JSON.parse(body).items[0];
         } else {
@@ -19,14 +19,24 @@ module.exports = function(Video, Channel, Counters, config, currentDownload) {
       require('deasync').loopWhile(function(){return !done;});
       return info;
     },
-    getRecentVids: function(channelName, results) {
-      results = results || 5;
+    getRecentVids: function(channelID, results) {
+      results || 5;
       var info = {};
       var done = false;
       var items = [];
-      request("https://www.googleapis.com/youtube/v3/channels?key=" + config.apikey + "&forUsername=" + channelName + "&part=contentDetails", function (error, response, body) {
+      request("https://www.googleapis.com/youtube/v3/channels?key=" + config.apikey + "&id=" + channelID + "&part=contentDetails", function (error, response, body) {
+        if (error) {
+          done = true;
+          return;
+        }
         if (JSON.parse(body).items.length !== 0) {
-          request("https://www.googleapis.com/youtube/v3/playlistItems?key=" + config.apikey + "&playlistId=" + JSON.parse(body).items[0].contentDetails.relatedPlaylists.uploads + "&part=snippet", function (error, response, body) {
+          request("https://www.googleapis.com/youtube/v3/playlistItems?key=" + config.apikey + "&playlistId=" + JSON.parse(body).items[0].contentDetails.relatedPlaylists.uploads + "&part=snippet&maxResults=" + results, function (error, response, body) {
+            // Hack to catch random errors
+            try {
+              JSON.parse(body).items;
+            } catch(e) {
+              console.log(error, response, body);
+            }
             info = JSON.parse(body).items;
             info.forEach(item => {
               var obj = {};
@@ -35,7 +45,7 @@ module.exports = function(Video, Channel, Counters, config, currentDownload) {
               obj.title = item.snippet.title;
               obj.channelTitle = item.snippet.channelTitle;
               obj.channelId = item.snippet.channelId;
-              obj.channelName = channelName;
+              obj.channelName = item.snippet.channelTitle;
               obj.description = item.snippet.description;
               obj.thumbnail = "http://img.youtube.com/vi/" + obj.youtubeID + "/mqdefault.jpg";
               obj.watched = false;
@@ -54,18 +64,25 @@ module.exports = function(Video, Channel, Counters, config, currentDownload) {
       var self = this;
       Channel.find({}, function(err, channels) {
         channels.forEach(channel => {
-          var vids = funcs.getRecentVids(channel.channelName, 5);
+          console.log("Checking " + channel.channelName);
+          var vids = funcs.getRecentVids(channel.channelID, 10);
           async.eachLimit(vids, 1, function(vid, callback) {
             Video.find({youtubeID: vid.youtubeID}, function(err, docs) {
               if (docs.length === 0) {
                 Video.create(vid, function(err, doc) {
-		  setTimeout(function() {
-	                  funcs.downloadQueue.push(doc);
-		  }, config.downloadDelay * 1000);
+                  // Download video if it is older than 15 minutes already
+                  if ((new Date().getTime() - new Date(doc.published).getTime()) >= 900000) {
+                    funcs.downloadQueue.push(doc);
+                  } else {
+                    setTimeout(function() {
+                      funcs.downloadQueue.push(doc);
+                    }, config.downloadDelay * 1000);
+                  }
                   callback();
                 });
+                console.log(vid.youtubeID + " has been added to download queue", funcs.downloadQueue.length());
               } else {
-                //console.log(vid.youtubeID + " has already been detected.");
+                console.log(vid.youtubeID + " has already been detected.");
                 callback();
               }
             });
@@ -79,6 +96,7 @@ module.exports = function(Video, Channel, Counters, config, currentDownload) {
         Video.update({youtubeID: task.youtubeID}, {$set: {processing: true}}, function() {
           var spawn = require('child_process').spawn;
           var ytjob = spawn('youtube-dl', ['https://www.youtube.com/watch?v=' + task.youtubeID, '-f', config.quality, '-o', 'public/vids/%(id)s.%(ext)s']);
+          console.log(`starting download for ${task.youtubeID}`);
           currentDownload.task = task;
           ytjob.stdout.on('data', (data) => {
             //console.log(`stdout: ${data}`);
@@ -87,12 +105,14 @@ module.exports = function(Video, Channel, Counters, config, currentDownload) {
               currentDownload.total = String(data).match(/of\s(.*) at/)[1];
               currentDownload.rate = String(data).match(/at\s(.*)\/s/)[1];
               currentDownload.eta = String(data).match(/ETA (.*)/)[1];
-              console.log(currentDownload.percent);
             } catch(e) {}
           });
 
           ytjob.stderr.on('data', (data) => {
             console.log(`stderr: ${data}`);
+            Video.remove({youtubeID: task.youtubeID}, () => {
+              console.log(`stderr: ${data}`);
+            });
           });
 
           ytjob.on('close', (code) => {
@@ -104,7 +124,7 @@ module.exports = function(Video, Channel, Counters, config, currentDownload) {
           });
         });
       } catch(e) {
-        console.log(task);
+        console.log(`something bad happened for ${task.youtubeID}`);
       }
     }, config.simultaneousDownloads)
   };

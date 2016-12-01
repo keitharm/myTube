@@ -8,6 +8,7 @@ var bodyParser   = require('body-parser');
 var compress     = require('compression');
 var cors         = require('cors');
 var async        = require('async');
+var request      = require('request');
 var io           = require('socket.io')(config.socket);
 
 var currentDownload = {};
@@ -63,8 +64,15 @@ app.use(function(err, req, res, next) {
   res.send(err.message).status(err.status || 500);
 });
 
-
-setInterval(yt.checkVids, config.updateInterval*1000);
-yt.checkVids();
+Video.remove({processed: false}, (a, b) => {
+  yt.checkVids();
+  setInterval(() => {
+    request('http://www.google.com', function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        yt.checkVids();
+      }
+    });
+  }, config.updateInterval*1000);
+});
 
 module.exports = app;

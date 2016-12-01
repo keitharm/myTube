@@ -38,19 +38,22 @@ module.exports = function(Video, Channel, Counters, yt) {
   });
 
   router.post('/channel', function(req, res, next) {
-    if (req.body.channelName === undefined) {
+    if (req.body.channelID === undefined) {
       res.send('Error: missing channelName key').status(400);
     } else {
-      Channel.find({channelName: req.body.channelName}, function(err, docs) {
+      Channel.find({channelID: req.body.channelID}, function(err, docs) {
         if (docs.length !== 0) {
-          res.send('Error: duplicate channelName').status(422);
+          res.send('Error: duplicate channelID').status(422);
         } else {
-          var info = yt.getChannelInfo(req.body.channelName);
-          console.log(info);
-          Channel.create({channelName: req.body.channelName, channelID: info.id, thumbnail: info.snippet.thumbnails.high.url}, function(err, docs) {
-            yt.checkVids();
-            res.sendStatus(200);
-          });
+          var info = yt.getChannelInfo(req.body.channelID);
+          if (info === undefined) {
+            res.send('Error: Invalid channel ID').status(400);
+          } else {
+            Channel.create({channelName: info.snippet.title, channelID: info.id, thumbnail: info.snippet.thumbnails.high.url}, function(err, docs) {
+              yt.checkVids();
+              res.sendStatus(200);
+            });
+          }
         }
       });
     }

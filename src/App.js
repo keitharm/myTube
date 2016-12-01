@@ -7,7 +7,7 @@ var App = React.createClass({
   addChannel: function(e) {
     e.preventDefault();
     if (this.state.channelText !== "") {
-      $.post('/api/channel', {channelName: this.state.channelText}, function(result) {
+      $.post('/api/channel', {channelID: this.state.channelText}, function(result) {
         if (result === "OK") {
           this.updateStatus("Channel " + this.state.channelText + " was added successfully!");
         } else {
