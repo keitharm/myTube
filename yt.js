@@ -70,6 +70,7 @@ module.exports = function(Video, Channel, Counters, config, currentDownload) {
             Video.find({youtubeID: vid.youtubeID}, function(err, docs) {
               if (docs.length === 0) {
                 Video.create(vid, function(err, doc) {
+                  if (err) return callback();
                   // Download video if it is older than 15 minutes already
                   if ((new Date().getTime() - new Date(doc.published).getTime()) >= 900000) {
                     funcs.downloadQueue.push(doc);
@@ -109,18 +110,28 @@ module.exports = function(Video, Channel, Counters, config, currentDownload) {
           });
 
           ytjob.stderr.on('data', (data) => {
-            console.log(`stderr: ${data}`);
-            Video.remove({youtubeID: task.youtubeID}, () => {
-              console.log(`stderr: ${data}`);
-            });
+            try {
+              if (data.trim() !== "WARNING: Cannot update utime of file") {
+                Video.remove({youtubeID: task.youtubeID}, () => {
+                  console.log(`stderr: ${data}`);
+                });
+              }
+            } catch(e) {}
           });
 
           ytjob.on('close', (code) => {
             console.log(`child process exited with code ${code}`);
-            Video.update({youtubeID: task.youtubeID}, {$set: {processing: false, processed: true}}, function() {
-              for (var member in currentDownload) delete currentDownload[member];
-              callback();
-            });
+            if (code !== 0) {
+              Video.remove({youtubeID: task.youtubeID}, () => {
+                for (var member in currentDownload) delete currentDownload[member];
+                callback();
+              });
+            } else {
+              Video.update({youtubeID: task.youtubeID}, {$set: {processing: false, processed: true}}, function() {
+                for (var member in currentDownload) delete currentDownload[member];
+                callback();
+              });
+            }
           });
         });
       } catch(e) {
