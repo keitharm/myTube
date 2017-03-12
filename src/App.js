@@ -6,15 +6,28 @@ var config = require('../config.json');
 var App = React.createClass({
   addChannel: function(e) {
     e.preventDefault();
-    if (this.state.channelText !== "") {
-      $.post('/api/channel', {channelID: this.state.channelText}, function(result) {
+
+    // Video id
+    if (this.state.channelText.length === 11) {
+      $.post('/api/manualDownload', {youtubeID: this.state.channelText}, function(result) {
         if (result === "OK") {
-          this.updateStatus("Channel " + this.state.channelText + " was added successfully!");
+          this.updateStatus("Manual Video " + this.state.channelText + " added to queue successfully!");
         } else {
           this.updateStatus(result);
         }
         this.setState({channelText: ""});
       }.bind(this));
+    } else {
+      if (this.state.channelText !== "") {
+        $.post('/api/channel', {channelID: this.state.channelText}, function(result) {
+          if (result === "OK") {
+            this.updateStatus("Channel " + this.state.channelText + " was added successfully!");
+          } else {
+            this.updateStatus(result);
+          }
+          this.setState({channelText: ""});
+        }.bind(this));
+      }
     }
   },
   viewVideo: function(e) {
@@ -63,7 +76,7 @@ var App = React.createClass({
         <div className="row header">
           <div className="col-xs-2 col-md-1"><a href="/">myTube</a></div>
           <div className="col-xs-5 col-md-8 status">Status: <span id="statusText">{this.state.status}</span></div>
-          <div className="col-xs-1 col-md-1 status"><form onSubmit={this.addChannel}><input type="text" id="channel" name="channel" placeholder="Add Channel" value={this.state.channelText} onChange={this.updateChannelText} autoComplete="off" /></form></div>
+          <div className="col-xs-1 col-md-1 status"><form onSubmit={this.addChannel}><input type="text" id="channel" name="channel" placeholder="Add Channel or manual dl" value={this.state.channelText} onChange={this.updateChannelText} autoComplete="off" /></form></div>
         </div>
         <div className="row myTube">
           <span className="title">Subscriptions</span>

@@ -4,7 +4,7 @@ var router   = express.Router();
 
 module.exports = function(Video, Channel, Counters, yt) {
   router.get('/video', function(req, res, next) {
-    Video.find({$and: [{deleted: false}, {$or:[{processed: true}, {processing: true}]}]}, {}, {sort: "-published"}, function(err, docs) {
+    Video.find({$and: [{deleted: false}, {$or:[{processed: true}, {processing: true}]}]}, {}, {sort: "-id"}, function(err, docs) {
       res.send(docs);
     });
   });
@@ -55,6 +55,28 @@ module.exports = function(Video, Channel, Counters, yt) {
             });
           }
         }
+      });
+    }
+  });
+
+  router.post('/manualDownload', function(req, res, next) {
+    Video.find({youtubeID: req.body.youtubeID}, (err, result) => {
+      if (result.length > 0) {
+        Video.remove({youtubeID: req.body.youtubeID}, () => {
+          dl();
+        });
+      } else {
+        dl();
+      }
+    });
+    function dl() {
+      var vid = yt.getVideoInfo(req.body.youtubeID);
+      Video.create(vid, function(err, doc) {
+        if (err) return res.send('Error: Invalid video ID');
+
+        yt.downloadQueue.push(doc);
+        console.log(vid.youtubeID + " has been manually added to download queue", yt.downloadQueue.length());
+        return res.sendStatus(200);
       });
     }
   });

@@ -5,6 +5,36 @@ var request      = require('request');
 
 module.exports = function(Video, Channel, Counters, config, currentDownload) {
   var funcs = {
+    getVideoInfo: function(videoID) {
+      var info = {};
+      var vidInfo;
+      var done = false;
+      request("https://www.googleapis.com/youtube/v3/videos?key=" + config.apikey + "&id=" + videoID + "&part=snippet", function (error, response, body) {
+        // Hack to catch random errors
+        try {
+          JSON.parse(body).items;
+        } catch(e) {
+          console.log(error, response, body);
+        }
+        info = JSON.parse(body).items;
+        info.forEach(item => {
+          var obj = {};
+          obj.youtubeID = item.id;
+          obj.published = item.snippet.publishedAt;
+          obj.title = item.snippet.title;
+          obj.channelTitle = item.snippet.channelTitle;
+          obj.channelId = item.snippet.channelId;
+          obj.channelName = item.snippet.channelTitle;
+          obj.description = item.snippet.description;
+          obj.thumbnail = "http://img.youtube.com/vi/" + obj.youtubeID + "/mqdefault.jpg";
+          obj.watched = false;
+          vidInfo = obj;
+        });
+        done = true;
+      });
+      require('deasync').loopWhile(function(){return !done;});
+      return vidInfo;
+    },
     getChannelInfo: function(channelID) {
       var info = {};
       var done = false;
