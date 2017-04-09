@@ -9,6 +9,12 @@ module.exports = function(Video, Channel, Counters, yt) {
     });
   });
 
+  router.post('/video/:id', function(req, res, next) {
+    Video.update({youtubeID: req.params.id}, {$set: {currentTime: req.body.currentTime}}, function(err, docs) {
+      res.sendStatus(200);
+    });
+  });
+
   router.delete('/video/:id', function(req, res, next) {
     Video.find({youtubeID: req.params.id}, function(err, docs) {
       if (err) {

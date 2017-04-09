@@ -85,6 +85,10 @@ html {
   font-size: 8pt;
 }
 
+.tile .selected {
+  border: solid 1px black;
+}
+
 .title {
   position: relative;
   top: 5px;

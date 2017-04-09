@@ -4,7 +4,9 @@ var SubscriptionBox = React.createClass({
     return {
       videos: [],
       socket: this.props.socket,
-      updateStatus: this.props.updateStatus
+      updateStatus: this.props.updateStatus,
+      selected: "",
+      selectedVideos: []
     };
   },
 
@@ -13,6 +15,7 @@ var SubscriptionBox = React.createClass({
     //   var self = this;
     //   this.setState({videos: this.state.videos.filter(item => item.youtubeID !== self.refs['item' + index].props.id)});
     // }.bind(this));
+    
     this.props.viewVideo(index);
   },
 
@@ -21,9 +24,10 @@ var SubscriptionBox = React.createClass({
   },
 
   requestVideos: function() {
-    $.get('/api/video', function (videos) {
+    $.get('api/video', function (videos) {
       this.setState({
-        videos
+        videos,
+        selectedVideos: videos
       });
     }.bind(this));
   },
@@ -44,10 +48,16 @@ var SubscriptionBox = React.createClass({
   render: function() {
     return (
       <div className="subscriptionBox">
-        {this.state.videos.map(function(item, i) {
+        {this.state.videos.filter(item => {
+          if (this.state.selected === "") {
+            return true;
+          } else {
+            return this.state.selected === item.channelName;
+          }
+        }).map(function(item, i) {
           return (
             <VideoTile
-              vidClick={this.vidClick.bind(this, i)}
+              vidClick={this.vidClick.bind(this, item.youtubeID)}
               authorClick={this.authorClick.bind(this, i)}
               key={i}
               title={item.title.slice(0, 40) + "..."}

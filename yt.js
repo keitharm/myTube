@@ -9,7 +9,7 @@ module.exports = function(Video, Channel, Counters, config, currentDownload) {
       var info = {};
       var vidInfo;
       var done = false;
-      request("https://www.googleapis.com/youtube/v3/videos?key=" + config.apikey + "&id=" + videoID + "&part=snippet", function (error, response, body) {
+      request("https://www.googleapis.com/youtube/v3/videos?key=" + config.apikey + "&id=" + videoID + "&part=snippet,contentDetails", function (error, response, body) {
         // Hack to catch random errors
         try {
           JSON.parse(body).items;
@@ -28,6 +28,8 @@ module.exports = function(Video, Channel, Counters, config, currentDownload) {
           obj.description = item.snippet.description;
           obj.thumbnail = "http://img.youtube.com/vi/" + obj.youtubeID + "/mqdefault.jpg";
           obj.watched = false;
+          obj.time = parseDuration(item.contentDetails.duration),
+          obj.currentTime = 0;
           vidInfo = obj;
         });
         done = true;
@@ -172,3 +174,13 @@ module.exports = function(Video, Channel, Counters, config, currentDownload) {
 
   return funcs;
 };
+
+function parseDuration(duration) {
+  var match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/)
+
+  var hours = (parseInt(match[1]) || 0);
+  var minutes = (parseInt(match[2]) || 0);
+  var seconds = (parseInt(match[3]) || 0);
+
+  return hours * 3600 + minutes * 60 + seconds;
+}

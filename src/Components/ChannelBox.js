@@ -4,16 +4,21 @@ var ChannelBox = React.createClass({
     return {
       channels: [],
       socket: this.props.socket,
-      updateStatus: this.props.updateStatus
+      updateStatus: this.props.updateStatus,
+      filterVideo: this.props.filterVideo
     };
   },
 
   authorClick: function(index) {
-    console.log('Author: ' + this.refs['item' + index]);
+    if (this.state.filterVideo() === this.state.channels[index].channelName) {
+      this.state.filterVideo("");
+    } else {
+      this.state.filterVideo(this.state.channels[index].channelName);
+    }
   },
 
   requestChannels: function() {
-    this.serverRequest = $.get('/api/channel', function (channels) {
+    this.serverRequest = $.get('api/channel', function (channels) {
       this.setState({
         channels
       });

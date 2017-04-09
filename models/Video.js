@@ -13,6 +13,14 @@ module.exports = function(mongoose, Counters) {
     published: {
       type: Date
     },
+    time: {
+      type: Number,
+      default: 0
+    },
+    currentTime: {
+      type: Number,
+      default: 0
+    },
     channelTitle: {
       type: "String"
     },

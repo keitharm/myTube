@@ -13,7 +13,6 @@ var VideoTile = React.createClass({
     this.setState({style: {display: 'none'}});
   },
   deleteVideo: function(e) {
-    console.log(e);
     this.props.deleteVideo(e);
   },
   render: function() {

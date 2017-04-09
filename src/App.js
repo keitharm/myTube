@@ -9,7 +9,7 @@ var App = React.createClass({
 
     // Video id
     if (this.state.channelText.length === 11) {
-      $.post('/api/manualDownload', {youtubeID: this.state.channelText}, function(result) {
+      $.post('api/manualDownload', {youtubeID: this.state.channelText}, function(result) {
         if (result === "OK") {
           this.updateStatus("Manual Video " + this.state.channelText + " added to queue successfully!");
         } else {
@@ -19,7 +19,7 @@ var App = React.createClass({
       }.bind(this));
     } else {
       if (this.state.channelText !== "") {
-        $.post('/api/channel', {channelID: this.state.channelText}, function(result) {
+        $.post('api/channel', {channelID: this.state.channelText}, function(result) {
           if (result === "OK") {
             this.updateStatus("Channel " + this.state.channelText + " was added successfully!");
           } else {
@@ -31,8 +31,7 @@ var App = React.createClass({
     }
   },
   viewVideo: function(e) {
-    this.refs.videoPlayer.showVideo(this.refs.SubscriptionBox.state.videos[e]);
-    //console.log(this.refs.SubscriptionBox.state.videos);
+    this.refs.videoPlayer.showVideo(this.refs.SubscriptionBox.state.videos.filter(item => item.youtubeID === e)[0]);
   },
   updateStatus: function(txt) {
     clearInterval(this.state.statusTimeout);
@@ -41,6 +40,20 @@ var App = React.createClass({
       statusTimeout: setTimeout(function() {
         this.setState({status: "ready"});
       }.bind(this), 2500)
+    });
+  },
+  filterVideo: function(channel) {
+    if (channel === undefined) return this.refs.SubscriptionBox.state.selected;
+
+    this.refs.SubscriptionBox.setState({
+      selected: channel,
+      selectedVideos: this.refs.SubscriptionBox.state.videos.filter(item => {
+        if (this.refs.SubscriptionBox.state.selected === "") {
+          return true;
+        } else {
+          return this.refs.SubscriptionBox.state.selected === item.channelName;
+        }
+      })
     });
   },
   updateChannelText: function(e) {
@@ -54,10 +67,9 @@ var App = React.createClass({
     };
   },
   deleteVideo: function(e) {
-    // Delete videoconsole.log(e);
     var self = this;
     $.ajax({
-      url: '/api/video/' + e,
+      url: 'api/video/' + e,
       type: 'DELETE',
       success: function(result) {
         self.refs.SubscriptionBox.requestVideos();
@@ -85,7 +97,7 @@ var App = React.createClass({
           </div>
           <span className="title">Channels</span>
           <div className="container-fluid">
-            <ChannelBox socket={this.state.socket} updateStatus={this.updateStatus} />
+            <ChannelBox socket={this.state.socket} updateStatus={this.updateStatus} filterVideo={this.filterVideo} />
           </div>
         </div>
       </div>
