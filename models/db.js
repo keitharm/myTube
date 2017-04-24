@@ -1,15 +1,14 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const settings = require('../utils').config;
 
-module.exports = function(settings) {
-  var options = {
-    user: settings.db.username,
-    pass: settings.db.password
-  };
-
-  mongoose.connect('mongodb://' + settings.db.host + '/' + settings.db.database, options);
-  var conn = mongoose.connection;
-
-  conn.on('error', console.error.bind(console, 'connection error:'));
-
-  return mongoose;
+let options = {
+  user: settings.db.username,
+  pass: settings.db.password
 };
+
+mongoose.connect('mongodb://' + settings.db.host + '/' + settings.db.database, options);
+let conn = mongoose.connection;
+
+conn.on('error', console.error.bind(console, 'connection error:'));
+
+module.exports = mongoose;

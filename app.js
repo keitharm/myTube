@@ -1,29 +1,32 @@
-var config       = require('./config');
-var express      = require('express');
-var path         = require('path');
-var favicon      = require('serve-favicon');
-var logger       = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser   = require('body-parser');
-var compress     = require('compression');
-var cors         = require('cors');
-var async        = require('async');
-var request      = require('request');
-var io           = require('socket.io')(config.socket);
+const utils        = require('./utils');
+const config       = utils.config;
 
-var currentDownload = {};
+const express      = require('express');
+const path         = require('path');
+const favicon      = require('serve-favicon');
+const logger       = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser   = require('body-parser');
+const compress     = require('compression');
+const cors         = require('cors');
+const async        = require('async');
+const request      = require('request');
+const io           = require('socket.io')(config.socket);
 
-require('./socket')(io, currentDownload);
+// Share sockets and download status utils
+utils.set('io', io);
 
-var db       = require('./models/db')(config);
-var Counters = require('./models/Counters')(db);
-var Video    = require('./models/Video')(db, Counters);
-var Channel  = require('./models/Channel')(db, Counters);
+let downloaders = {};
+utils.set('downloaders', downloaders);
 
-var yt    = require('./yt')(Video, Channel, Counters, config, currentDownload);
-var index = require('./routes/index')(Video, Channel, Counters, yt);
+require('./models/db');
+require('./socket');
+const Video = require('./models/Video');
 
-var app = express();
+const yt    = require('./yt');
+const index = require('./routes/index');
+
+const app = express();
 
 app.use(cors());
 app.use(compress());
@@ -32,8 +35,6 @@ app.use(compress());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -43,8 +44,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', index);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+app.use((req, res, next) => {
+  let err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
@@ -53,21 +54,26 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
+  app.use((err, req, res, next) => {
     res.send(err.message).status(err.status || 500);
   });
 }
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   res.send(err.message).status(err.status || 500);
 });
 
+// Remove all unprocessed videos (maybe add continue feature in the future)
 Video.remove({processed: false}, (a, b) => {
+
+  // Check for new videos on start
   yt.checkVids();
+
+  // Make sure that there is internet access before checking for vids
   setInterval(() => {
-    request('http://www.google.com', function (error, response, body) {
+    request('http://www.google.com', (error, response, body) => {
       if (!error && response.statusCode == 200) {
         yt.checkVids();
       }

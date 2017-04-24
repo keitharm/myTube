@@ -1,7 +1,7 @@
 var SubscriptionBox = require('./Components/SubscriptionBox');
-var ChannelBox = require('./Components/ChannelBox');
-var VideoPlayer = require('./Components/VideoPlayer');
-var config = require('../config.json');
+var ChannelBox      = require('./Components/ChannelBox');
+var VideoPlayer     = require('./Components/VideoPlayer');
+var config          = require('../config.json');
 
 var App = React.createClass({
   addChannel: function(e) {
