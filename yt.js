@@ -5,38 +5,7 @@ var request      = require('request');
 
 module.exports = function(Video, Channel, Counters, config, currentDownload) {
   var funcs = {
-    getVideoInfo: function(videoID) {
-      var info = {};
-      var vidInfo;
-      var done = false;
-      request("https://www.googleapis.com/youtube/v3/videos?key=" + config.apikey + "&id=" + videoID + "&part=snippet,contentDetails", function (error, response, body) {
-        // Hack to catch random errors
-        try {
-          JSON.parse(body).items;
-        } catch(e) {
-          console.log(error, response, body);
-        }
-        info = JSON.parse(body).items;
-        info.forEach(item => {
-          var obj = {};
-          obj.youtubeID = item.id;
-          obj.published = item.snippet.publishedAt;
-          obj.title = item.snippet.title;
-          obj.channelTitle = item.snippet.channelTitle;
-          obj.channelId = item.snippet.channelId;
-          obj.channelName = item.snippet.channelTitle;
-          obj.description = item.snippet.description;
-          obj.thumbnail = "http://img.youtube.com/vi/" + obj.youtubeID + "/mqdefault.jpg";
-          obj.watched = false;
-          obj.time = parseDuration(item.contentDetails.duration),
-          obj.currentTime = 0;
-          vidInfo = obj;
-        });
-        done = true;
-      });
-      require('deasync').loopWhile(function(){return !done;});
-      return vidInfo;
-    },
+    getVideoInfo,
     getChannelInfo: function(channelID) {
       var info = {};
       var done = false;
@@ -71,6 +40,7 @@ module.exports = function(Video, Channel, Counters, config, currentDownload) {
             }
             info = JSON.parse(body).items;
             info.forEach(item => {
+              var timeInfo = getVideoInfo(item.snippet.resourceId.videoId);
               var obj = {};
               obj.youtubeID = item.snippet.resourceId.videoId;
               obj.published = item.snippet.publishedAt;
@@ -81,6 +51,8 @@ module.exports = function(Video, Channel, Counters, config, currentDownload) {
               obj.description = item.snippet.description;
               obj.thumbnail = "http://img.youtube.com/vi/" + obj.youtubeID + "/mqdefault.jpg";
               obj.watched = false;
+              obj.time = timeInfo.time;
+              obj.currentTime = 0;
               items.push(obj);
             });
             done = true;
@@ -173,14 +145,49 @@ module.exports = function(Video, Channel, Counters, config, currentDownload) {
   };
 
   return funcs;
+
+  function parseDuration(duration) {
+    if (duration === undefined) return 0;
+    var match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/)
+
+    var hours = (parseInt(match[1]) || 0);
+    var minutes = (parseInt(match[2]) || 0);
+    var seconds = (parseInt(match[3]) || 0);
+
+    return hours * 3600 + minutes * 60 + seconds;
+  }
+
+
+  function getVideoInfo(videoID) {
+    var info = {};
+    var vidInfo;
+    var done = false;
+    request("https://www.googleapis.com/youtube/v3/videos?key=" + config.apikey + "&id=" + videoID + "&part=snippet,contentDetails", function (error, response, body) {
+      // Hack to catch random errors
+      try {
+        JSON.parse(body).items;
+      } catch(e) {
+        console.log(error, response, body);
+      }
+      info = JSON.parse(body).items;
+      info.forEach(item => {
+        var obj = {};
+        obj.youtubeID = item.id;
+        obj.published = item.snippet.publishedAt;
+        obj.title = item.snippet.title;
+        obj.channelTitle = item.snippet.channelTitle;
+        obj.channelId = item.snippet.channelId;
+        obj.channelName = item.snippet.channelTitle;
+        obj.description = item.snippet.description;
+        obj.thumbnail = "http://img.youtube.com/vi/" + obj.youtubeID + "/mqdefault.jpg";
+        obj.watched = false;
+        obj.time = parseDuration(item.contentDetails.duration),
+        obj.currentTime = 0;
+        vidInfo = obj;
+        });
+      done = true;
+    });
+    require('deasync').loopWhile(function(){return !done;});
+    return vidInfo;
+  }
 };
-
-function parseDuration(duration) {
-  var match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/)
-
-  var hours = (parseInt(match[1]) || 0);
-  var minutes = (parseInt(match[2]) || 0);
-  var seconds = (parseInt(match[3]) || 0);
-
-  return hours * 3600 + minutes * 60 + seconds;
-}

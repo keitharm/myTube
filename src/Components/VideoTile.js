@@ -20,6 +20,7 @@ var VideoTile = React.createClass({
     return (
       <div className="tile" onMouseOver={this.reveal.bind(this, this.props.id)} onMouseLeave={this.hide}>
         <div className="picture" onClick={this.props.vidClick}><img src={this.props.thumb}  /></div>
+        <div className="times" style={this.state.style} onClick={this.props.vidClick}>{this.props.currentTime} / {this.props.time}</div>
         <button type="button" className="deleteButton btn btn-danger" style={this.state.style} onClick={this.deleteVideo.bind(this, this.props.id)}>Delete Video</button>
         <div className="name" onClick={this.props.vidClick}>{this.props.title}</div>
         <div className="author" onClick={this.props.authorClick}>{this.props.channelName}</div>

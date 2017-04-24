@@ -129,6 +129,17 @@ html {
   margin-bottom: 15px;
 }
 
+.times {
+  background-color: black;
+  font-size: 16pt;
+  font-weight: bold;
+  color: white;
+  opacity: .8;
+  margin-left: 0px;
+  position: absolute;
+  margin-top: -64px;
+}
+
 .deleteButton {
   opacity: .8;
   margin-left: 45px;

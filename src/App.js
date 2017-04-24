@@ -81,6 +81,9 @@ var App = React.createClass({
   },
   componentDidMount: function() {
   },
+  updateTimeStats: function(stats) {
+   this.setState({timeStats: stats});
+  },
   render: function() {
     return (
       <div className="app container-fluid">
@@ -91,9 +94,9 @@ var App = React.createClass({
           <div className="col-xs-1 col-md-1 status"><form onSubmit={this.addChannel}><input type="text" id="channel" name="channel" placeholder="Add Channel or manual dl" value={this.state.channelText} onChange={this.updateChannelText} autoComplete="off" /></form></div>
         </div>
         <div className="row myTube">
-          <span className="title">Subscriptions</span>
+          <span className="title">Subscriptions - {this.state.timeStats}</span>
           <div className="container-fluid">
-            <SubscriptionBox socket={this.state.socket} ref="SubscriptionBox" updateStatus={this.updateStatus} viewVideo={this.viewVideo} deleteVideo={this.deleteVideo}/>
+            <SubscriptionBox socket={this.state.socket} ref="SubscriptionBox" updateStatus={this.updateStatus} viewVideo={this.viewVideo} deleteVideo={this.deleteVideo} updateTimeStats={this.updateTimeStats} />
           </div>
           <span className="title">Channels</span>
           <div className="container-fluid">

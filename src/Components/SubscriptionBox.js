@@ -5,6 +5,7 @@ var SubscriptionBox = React.createClass({
       videos: [],
       socket: this.props.socket,
       updateStatus: this.props.updateStatus,
+      updateTimeStats: this.props.updateTimeStats,
       selected: "",
       selectedVideos: []
     };
@@ -29,6 +30,13 @@ var SubscriptionBox = React.createClass({
         videos,
         selectedVideos: videos
       });
+      let totalTime = Math.floor(videos.reduce((a, b) => a + b.time, 0));
+      let watchTime = Math.floor(videos.reduce((a, b) => a + b.currentTime, 0));
+
+      let cTotalTime = conv(totalTime);
+      let cWatchTime = conv(watchTime);
+
+      this.state.updateTimeStats(`Watched ${cWatchTime.days}d ${cWatchTime.hours}h ${cWatchTime.minutes}m ${cWatchTime.seconds}s of ${cTotalTime.days}d ${cTotalTime.hours}h ${cTotalTime.minutes}m ${cTotalTime.seconds}s (${Math.floor((watchTime/totalTime)*10000)/10000}%)`)
     }.bind(this));
   },
 
@@ -65,6 +73,8 @@ var SubscriptionBox = React.createClass({
               channelName={item.channelName}
               info={item.info}
               id={item.youtubeID}
+              time={item.time}
+              currentTime={item.currentTime}
               ref={'item' + i}
               deleteVideo={this.props.deleteVideo}
             />
@@ -74,5 +84,20 @@ var SubscriptionBox = React.createClass({
     )
   }
 });
+
+function conv(sec) {
+  var dateFuture = new Date(Date.now() + sec*1000);
+  var dateNow = new Date();
+
+  var seconds = Math.floor((dateFuture - (dateNow))/1000);
+  var minutes = Math.floor(seconds/60);
+  var hours = Math.floor(minutes/60);
+  var days = Math.floor(hours/24);
+
+  hours = hours-(days*24);
+  minutes = minutes-(days*24*60)-(hours*60);
+  seconds = seconds-(days*24*60*60)-(hours*60*60)-(minutes*60);
+  return {days, hours, minutes, seconds};
+}
 
 module.exports = SubscriptionBox;

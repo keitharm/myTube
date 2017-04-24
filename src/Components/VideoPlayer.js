@@ -5,19 +5,45 @@ var VideoPlayer = React.createClass({
       title: "",
       style: {display: "none"},
       sendCurrentTimeInterval: null,
-      localCurrentTime: {}
+      localCurrentTime: {},
+      hasPlayed: false
     }
   },
   showVideo: function(video) {
+    window.currentVideo = video;
     var self = this;
     var src = document.getElementById('videoSrc');
     src.src = "vids/" + video.youtubeID + ".mp4";
     var vid = document.getElementById('video');
     vid.load();
 
-    var comptime = this.state.localCurrentTime[video.youtubeID] ? this.state.localCurrentTime[video.youtubeID] : video.currentTime;
-      
-    vid.currentTime = comptime > (video.time - 10) ? 0 : comptime;
+    var comptime = this.state.localCurrentTime[window.currentVideo.youtubeID] ? this.state.localCurrentTime[window.currentVideo.youtubeID] : window.currentVideo.currentTime;
+
+    /*
+    vid.currentTime = comptime > (video.time - 10) && video.time !== 0 ? 0 : comptime;
+    setTimeout(() => {
+      if (vid.currentTime - 3 < comptime) {
+        vid.currentTime = comptime > (video.time - 10) && video.time !== 0 ? 0 : comptime;
+      }
+    }, 3000);
+    */
+
+    vid.addEventListener('play', function() {
+      if (!self.state.hasPlayed) {
+
+        if (self.state.localCurrentTime[self.state.id] === undefined) {
+          var comptime = self.state.localCurrentTime[window.currentVideo.youtubeID] ? self.state.localCurrentTime[window.currentVideo.youtubeID] : window.currentVideo.currentTime;
+          vid.currentTime = comptime > (window.currentVideo.time - 10) && window.currentVideo.time !== 0 ? 0 : comptime;
+        } else {
+          vid.currentTime = self.state.localCurrentTime[self.state.id];
+        }
+
+        self.setState({
+          hasPlayed: true
+        });
+      }
+    });
+
     vid.addEventListener('canplay', function() {
       vid.play();
       this.setState({
@@ -28,7 +54,7 @@ var VideoPlayer = React.createClass({
     }.bind(this));
 
     vid.addEventListener('progress', function() {
-      var range = 0;
+      /*var range = 0;
       var bf = this.buffered;
       var time = this.currentTime;
 
@@ -41,6 +67,7 @@ var VideoPlayer = React.createClass({
       self.setState({
         loadedPercent: (Math.round(loadPercentage*10000)/100).toFixed(2) + "%"
       });
+      */
     });
     this.setState({sendCurrentTimeInterval: setInterval(() => {
       this.sendCurrentTime();
@@ -48,8 +75,15 @@ var VideoPlayer = React.createClass({
   },
   componentDidMount: function() {
     var video = document.getElementById('video');
+    window.shakeEvent = new Shake({threshold: 15});
+
+    window.addEventListener('shake', shakeEventDidOccur, false);
+    window.shakeEvent.start();
+    function shakeEventDidOccur() {
+      video.currentTime -= 5;
+    }
+
     video.onclick = function(e) {
-      console.log('blah');
       e.stopPropagation();
       if (video.paused) {
         video.play();
@@ -159,15 +193,15 @@ var VideoPlayer = React.createClass({
     this.setState({style: {display: "none"}});
     video.pause();
     clearInterval(this.state.sendCurrentTimeInterval);
-    this.setState({sendCurrentTimeInterval: null});
+    this.setState({sendCurrentTimeInterval: null, hasPlayed: false});
     this.sendCurrentTime();
   },
   sendCurrentTime: function() {
     var self = this;
-    $.post('api/video/' + this.state.id, {currentTime: video.currentTime}, res => {
+    $.post('api/video/' + this.state.id, {currentTime: Math.floor(video.currentTime)}, res => {
       console.log(res);
     });
-    this.state.localCurrentTime[this.state.id] = video.currentTime;
+    this.state.localCurrentTime[this.state.id] = Math.floor(video.currentTime);
     this.forceUpdate();
   },
   render: function() {
