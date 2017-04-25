@@ -7,7 +7,8 @@ var SubscriptionBox = React.createClass({
       updateStatus: this.props.updateStatus,
       updateTimeStats: this.props.updateTimeStats,
       selected: "",
-      selectedVideos: []
+      selectedVideos: [],
+      mode: "socket"
     };
   },
 
@@ -41,16 +42,59 @@ var SubscriptionBox = React.createClass({
   },
 
   componentDidMount: function() {
+    let self = this;
     this.requestVideos();
-    this.state.socket.on('downloadStart', function() {
-      this.requestVideos();
-    }.bind(this));
-    this.state.socket.on('download', function(data) {
-      console.log(data);
-      if (data.percent !== undefined) {
-        this.state.updateStatus("Downloading " + data.task.title.slice(0, 15) + "... | " + data.percent + "% of " + data.total + " @ " + data.rate + "/s | ETA: " + data.eta);
+    let times = 0;
+
+    let socketCheck = setInterval(() => {
+      if (this.state.socket.connected) {
+        console.log("Mode will be kept on socket");
+        startDownloadListener();
       }
-    }.bind(this));
+      if (times++ === 3) {
+        this.setState({mode: "http"});
+        console.log("setting mode to http");
+        startDownloadListener();
+      }
+    }, 1000);
+
+    function startDownloadListener() {
+      clearInterval(socketCheck);
+
+      if (self.state.mode === "socket") {
+        self.state.socket.on('downloadStart', function() {
+          self.requestVideos();
+        }.bind(self));
+        self.state.socket.on('download', function(data) {
+          console.log(data);
+          if (data.percent !== undefined) {
+            self.state.updateStatus("Downloading " + data.task.title.slice(0, 15) + "... | " + data.percent + "% of " + data.total + " @ " + data.rate + "/s | ETA: " + data.eta);
+          }
+        }.bind(self));
+
+      // http
+      } else {
+        let alreadyRequested = false;
+        setInterval(() => {
+          $.get("api/downloadStatus", data => {
+
+            // Video is downloading
+            if (alreadyRequested && Object.keys(data).length !== 0) {
+              //alreadyRequested = true;
+            } else {
+              alreadyRequested = false;
+            }
+
+            console.log(data);
+            if (data.percent !== undefined) {
+              if (!alreadyRequested) self.requestVideos();
+              alreadyRequested = true;
+              self.state.updateStatus("Downloading " + data.task.title.slice(0, 15) + "... | " + data.percent + "% of " + data.total + " @ " + data.rate + "/s | ETA: " + data.eta);
+            }
+          });
+        }, 500);
+      }
+    }
   },
 
   render: function() {

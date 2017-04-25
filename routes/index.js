@@ -110,4 +110,9 @@ router.get('/channel', (req, res, next) => {
   Channel.find({}, {}, {sort: "id"}, (err, docs) => res.send(docs));
 });
 
+// If unable to access via sockets
+router.get('/downloadStatus', (req, res, next) => {
+  res.send(utils.get('downloaders'));
+});
+
 module.exports = router;
