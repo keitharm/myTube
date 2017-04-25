@@ -1,9 +1,13 @@
-const fs       = require('fs');
-const express  = require('express');
-const router   = express.Router();
+const fs      = require('fs');
+const express = require('express');
+const router  = express.Router();
 
-const Video    = require('../models/Video');
-const Channel  = require('../models/Channel');
+const Video   = require('../models/Video');
+const Channel = require('../models/Channel');
+
+const utils   = require('../utils');
+
+let downloaders = utils.get('downloaders');
 
 const yt = require('../yt');
 
@@ -20,6 +24,8 @@ router.post('/video/:id', (req, res, next) => {
 });
 
 router.delete('/video/:id', (req, res, next) => {
+  if (downloaders.task && downloaders.task.youtubeID === req.params.id) utils.get('ytjob').kill(); // Kill ffmpeg if video is currently being downloaded
+
   Video.find({youtubeID: req.params.id}, (err, docs) => {
 
     if (err) {

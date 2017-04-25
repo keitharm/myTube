@@ -48,7 +48,7 @@ var SubscriptionBox = React.createClass({
     this.state.socket.on('download', function(data) {
       console.log(data);
       if (data.percent !== undefined) {
-        this.state.updateStatus("Downloading " + data.task.title.slice(0, 25) + "... | " + data.percent + "% of " + data.total + " @ " + data.rate + "/s | ETA: " + data.eta);
+        this.state.updateStatus("Downloading " + data.task.title.slice(0, 15) + "... | " + data.percent + "% of " + data.total + " @ " + data.rate + "/s | ETA: " + data.eta);
       }
     }.bind(this));
   },

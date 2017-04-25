@@ -90,8 +90,8 @@ var App = React.createClass({
         <VideoPlayer ref="videoPlayer" />
         <div className="row header">
           <div className="col-xs-2 col-md-1"><a href="/">myTube</a></div>
-          <div className="col-xs-5 col-md-8 status">Status: <span id="statusText">{this.state.status}</span></div>
-          <div className="col-xs-1 col-md-1 status"><form onSubmit={this.addChannel}><input type="text" id="channel" name="channel" placeholder="Add Channel or manual dl" value={this.state.channelText} onChange={this.updateChannelText} autoComplete="off" /></form></div>
+          <div className="col-xs-5 col-md-7 status">Status: <span id="statusText">{this.state.status}</span></div>
+          <div className="col-xs-1 col-md-1 status"><form onSubmit={this.addChannel}><input style={{width: "250px"}} type="text" id="channel" name="channel" placeholder="Add Channel or manual dl" value={this.state.channelText} onChange={this.updateChannelText} autoComplete="off" /></form></div>
         </div>
         <div className="row myTube">
           <span className="title">Subscriptions - {this.state.timeStats}</span>

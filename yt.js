@@ -122,6 +122,7 @@ let yt = {
         console.log(`starting download for ${task.youtubeID}`);
         let spawn = require('child_process').spawn;
         let ytjob = spawn('youtube-dl', ['https://www.youtube.com/watch?v=' + task.youtubeID, '-f', config.quality, '-o', 'public/vids/%(id)s.%(ext)s']);
+        utils.set('ytjob', ytjob);
 
         downloaders.task = task;
         ytjob.stdout.on('data', data => {
@@ -147,7 +148,7 @@ let yt = {
         ytjob.on('close', code => {
           console.log(`child process exited with code ${code}`);
 
-          if (code !== 0) {
+          if (code !== 0 && code !== null) {
             Video.remove({youtubeID: task.youtubeID}, () => {
               for (let member in downloaders) delete downloaders[member];
               callback();
