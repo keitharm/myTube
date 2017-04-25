@@ -12,7 +12,7 @@ let downloaders = utils.get('downloaders');
 const yt = require('../yt');
 
 router.get('/video', (req, res, next) => {
-  Video.find({$and: [{deleted: false}, {$or:[{processed: true}, {processing: true}]}]}, {}, {sort: "-id"}, (err, docs) => {
+  Video.find({$and: [{deleted: false}, {$or:[{processed: true}, {processing: true}]}]}, {}, {sort: "-_id"}, (err, docs) => {
     res.send(docs);
   });
 });
