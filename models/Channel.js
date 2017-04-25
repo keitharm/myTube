@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 
 let channelSchema = mongoose.Schema({
   channelName: {
-    type: String,
-    unique: true
+    type: String
   },
   channelID: {
     type: String,
