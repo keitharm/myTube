@@ -16,6 +16,7 @@ Even when I came back home to my wonderful 50 up 50 down Mbps connection, Youtub
 ##### TL;DR
 * Your videos download automatically in whatever quality you desire while you are at school/work and are ready to view without any buffering once you get back home.
 * No Ads
+* Current progress saved for each video for resuming later.
 * Better keyboard controls (see down below)
 
 ### Keyboard controls
@@ -28,12 +29,12 @@ myTube on the other hand doesn't require you to have the video element focused. 
 * 1 - 9 keys = 10% of the video; 0 will start at the beginning
 * F to enter full screen
 * Escape to exit video viewing mode
-* --- More planned ---
+* Shake on mobile to go back 5 seconds
 
 ### How to Setup
 1. Clone this repo and run `npm install`.
 2. Add the database user by running `mongo < mongoSetup`. This will create the default collection `myTube` and the default user `myTube`. If you want to use any other db/user make sure you update the `config.json` file.
 3. Get a Youtube Data API from Google and add the API key to the `config.json` file.
-4. Run `gulp` to build the views. The current gulp config has a watcher that'll keep gulp running for view updates, so ctrl-c out of the program when it finishes the `default` task.
+4. Run `gulp` to build the views.
 5. Double check that your config settings are all set the way you like and run `npm start` to start the myTube server.
 6. Access myTube at `http://localhost:3000`
