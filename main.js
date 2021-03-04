@@ -10,7 +10,7 @@ function createWindow () {
   })
   console.log("remember to check the config files")
   console.log("or check docs.txt for the steps")
-  win.loadFile('http://localhost:3000')
+  win.loadFile('index.html')
 }
 
 app.whenReady().then(createWindow)
