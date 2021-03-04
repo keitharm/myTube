@@ -11,6 +11,10 @@ let downloaders = utils.get('downloaders');
 
 const yt = require('../yt');
 
+var person = prompt("Please enter hex color for theme", "eg. #ffffff | remember to include #");
+
+document.body.style.backgroundColor = Person;
+
 router.get('/video', (req, res, next) => {
   Video.find({$and: [{deleted: false}, {$or:[{processed: true}, {processing: true}]}]}, {}, {sort: "-_id"}, (err, docs) => {
     res.send(docs);
