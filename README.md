@@ -1,3 +1,12 @@
+# Why this fork?
+the old project hasn't been changed in 5 years
+
+### Changelog
+1. added electron interface
+2. added easier config
+
+
+
 # myTube: Youtube without the bloat
 
 ![](http://i.imgur.com/Be2omEM.jpg)
