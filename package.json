@@ -12,6 +12,9 @@
       "reactify"
     ]
   },
+  "resolutions": {
+    "graceful-fs": "^4.2.4"
+  },
   "dependencies": {
     "async": "^2.0.0-rc.5",
     "body-parser": "~1.13.2",
