@@ -36,6 +36,8 @@ myTube on the other hand doesn't require you to have the video element focused. 
 git clone https://github.com/keitharm/mytube
 cd mytube
 ```
+then read docs.txt
+
 **windows:**
 ```
 install-dep.sh
