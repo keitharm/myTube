@@ -1,12 +1,12 @@
 {
-    "name": "my-electron-app",
-    "version": "0.1.0",
-    "author": "your name",
-    "description": "My Electron app",
-    "main": "main.js",
-    "scripts": {
-        "start": "electron ."
-    },
+  "name": "MyTube",
+  "version": "0.1.0",
+  "author": "your name",
+  "description": "MyTube",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
   "browserify": {
     "transform": [
       "reactify"
@@ -24,6 +24,7 @@
     "ejs": "~2.3.3",
     "express": "~4.13.1",
     "glob": "^7.0.3",
+    "mongodb": "^3.6.4",
     "mongoose": "^4.4.19",
     "morgan": "~1.6.1",
     "request": "^2.72.0",

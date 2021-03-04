@@ -3,3 +3,8 @@ public/js/build.min.js
 test*.js
 public/vids/*
 npm-debug.log
+config.json
+config.json
+mongod.pdb
+mongos.pdb
+config.json
