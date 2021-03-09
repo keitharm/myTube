@@ -1,0 +1,196 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #222222 ;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    background: #CC0000;
+}
+
+.menu ul{
+    display: inline-flex;
+    margin: 50px;
+}
+
+.menu ul li{
+    text-decoration: none;
+    list-style: none;
+    margin: 0 10px;
+    color: #FFFFFF;
+    font-weight: bold;
+    cursor: pointer;
+    background: #222222;
+}
+
+.logo img{
+    width: 50px;
+    margin-top: -7px;
+    margin-right: 48px;
+}
+.active{
+    color: #FF0000 !important;
+}
+.signup-btn{
+    top: 50px;
+    right: 80px;
+    position: absolute;
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    background-image: linear-gradient(#000000, #FFFFFF), radial-gradient(circle at top left, #FF0000,#000);
+    background-origin: border-box;
+    background-clip: content-box,border-box;
+}
+.signup-btn span{
+    display: block;
+    padding: 8px 22px;
+}
+.banner{
+    width: 80%;
+    height: 70%;
+    top: 25%;
+    left: 70px;
+    position: absolute;
+    color: #ffffff;
+}
+.app-text{
+    width: 50%;
+    float: left;
+}
+.app-text h1{
+    font-size: 45px;
+    width: 90%;
+    position: relative;
+    margin-left: 40px;
+}
+.app-text h3{
+    width: 90%;
+    font-size: 25px;
+    margin: 30px 0px 30px 40px;
+    line-height: 25px;
+}
+.app-text p{
+    width: 90%;
+    font-size: 20px;
+    margin: 30px 0px 30px 40px;
+    line-height: 25px;
+}
+.app-picture{
+    width: 50%;
+    float: right;
+}
+.app-picture img{
+    width: 75%;
+    margin-top: -150px;
+    padding-left: 150px;
+}
+
+.app-text-2{
+    width: 50%;
+    float: right;
+    position: relative;
+    margin-right: -150px;
+}
+.app-text-2 h1{
+    font-size: 45px;
+    width: 90%;
+    margin: 30px 60px 30px -10px;
+}
+.app-text-2 h3{
+    width: 90%;
+    font-size: 25px;
+    line-height: 25px;
+    margin: 30px 60px 30px -10px;
+}
+.app-text-2 p{
+    width: 90%;
+    font-size: 20px;
+    line-height: 25px;
+    margin: 30px 60px 30px -10px;
+}
+.app-picture-2{
+    width: 50%;
+    float: left;
+}
+.app-picture-2 img{
+    width: 50%;
+    margin-top: 50px;
+    margin-left: 100px;
+    padding-right: 100px;
+    float: left;
+}
+.app-text-3{
+    width: 50%;
+    float: inherit;
+    margin-left: 0px;
+    margin-top: inherit
+}
+.app-text-3 h1{
+    font-size: 45px;
+    width: 90%;
+    position: relative;
+    margin-left: 40px;
+    float: left;
+}
+.app-text-3 h3{
+    width: 90%;
+    font-size: 25px;
+    margin: 30px 0px 30px 40px;
+    line-height: 25px;
+    float: left;
+}
+.app-text-3 p{
+    width: 90%;
+    font-size: 20px;
+    line-height: 25px;
+    margin-left: 40px;
+    float: left;
+}
+.app-picture-3{
+    width: 50%;
+    float: right;
+    margin-top: -250px;
+}
+.app-picture-3 img{
+    width: 75%;
+    padding-left: 150px;
+}
+.app-text-4{
+    width: 50%;
+    float: right;
+    position: relative;
+    margin-right: -150px;
+}
+.app-text-4 h1{
+    font-size: 45px;
+    width: 90%;
+    margin: 30px 60px 30px -10px;
+}
+.app-text-4 h3{
+    width: 90%;
+    font-size: 25px;
+    line-height: 25px;
+    margin: 30px 60px 30px -10px;
+}
+.app-text-4 p{
+    width: 90%;
+    font-size: 20px;
+    line-height: 25px;
+    margin: 30px 60px 30px -10px;
+}
+.app-picture-4{
+    width: 50%;
+    float: left;
+}
+.app-picture-4 img{
+    width: 70%;
+    margin-top: 130px;
+    margin-left: 100px;
+    padding-right: 100px;
+    float: left;
+}

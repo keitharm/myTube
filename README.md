@@ -1,3 +1,12 @@
+# Why this fork?
+the old project hasn't been changed in 5 years
+
+### Changelog
+1. added electron interface
+2. added easier config
+
+
+
 # myTube: Youtube without the bloat
 
 ![](http://i.imgur.com/Be2omEM.jpg)
@@ -32,9 +41,23 @@ myTube on the other hand doesn't require you to have the video element focused. 
 * Shake on mobile to go back 5 seconds
 
 ### How to Setup
-1. Clone this repo and run `npm install`.
-2. Add the database user by running `mongo < mongoSetup`. This will create the default collection `myTube` and the default user `myTube`. If you want to use any other db/user make sure you update the `config.json` file.
-3. Get a Youtube Data API from Google and add the API key to the `config.json` file.
-4. Run `gulp` to build the views.
-5. Double check that your config settings are all set the way you like and run `npm start` to start the myTube server.
-6. Access myTube at `http://localhost:3000`
+```
+git clone https://github.com/keitharm/mytube
+cd mytube
+```
+then read docs.txt
+
+**windows:**
+```
+install-dep.sh
+start.sh
+```
+
+**other:**
+```
+bash install-dep.sh
+bash start.sh
+```
+
+# Help?
+please check docs.txt

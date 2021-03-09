@@ -1,0 +1,19 @@
+```
+npm install
+npm i --save-dev electron
+```
+
+# If you don't have mongo DB you can get it from here, https://mongodb.com
+
+mongo < mongoSetup
+
+# config.json
+# go to config.json
+# check https://www.youtube.com/watch?v=VqML5F8hcRQ for help
+```
+gulp
+npm start
+```
+
+# done, the bash script is located at install-dep.sh
+# then run start.exe (win) or start.sh

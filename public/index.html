@@ -1,5 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href="index.html">Home</a></li>
+  <li><a href="Y4D/index.html">Y4D</a></li>
+  <li><a href="About.html">About</a></li>
+  <li style="float:right"><a href="https://github.com/sakurai07/mytube">Github</a></li>
+</ul>
+
   <head>
     <title>myTube</title>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
