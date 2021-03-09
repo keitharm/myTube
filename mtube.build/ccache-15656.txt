@@ -1,0 +1,481 @@
+[2021-03-09T11:32:02.233722 7908 ] === CCACHE 3.7.12 STARTED =========================================
+[2021-03-09T11:32:02.233722 12316] === CCACHE 3.7.12 STARTED =========================================
+[2021-03-09T11:32:02.233722 12316] Config: (default) base_dir = 
+[2021-03-09T11:32:02.233722 12316] Config: (environment) cache_dir = C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2021-03-09T11:32:02.233722 12316] Config: (default) cache_dir_levels = 2
+[2021-03-09T11:32:02.233722 12316] Config: (default) compiler = 
+[2021-03-09T11:32:02.233722 12316] Config: (default) compiler_check = mtime
+[2021-03-09T11:32:02.233722 12316] Config: (default) compression = false
+[2021-03-09T11:32:02.233722 12316] Config: (default) compression_level = 6
+[2021-03-09T11:32:02.233722 12316] Config: (default) cpp_extension = 
+[2021-03-09T11:32:02.233722 12316] Config: (default) debug = false
+[2021-03-09T11:32:02.233722 12316] Config: (default) depend_mode = false
+[2021-03-09T11:32:02.233722 12316] Config: (default) direct_mode = true
+[2021-03-09T11:32:02.233722 12316] Config: (default) disable = false
+[2021-03-09T11:32:02.233722 12316] Config: (default) extra_files_to_hash = 
+[2021-03-09T11:32:02.233722 12316] Config: (default) hard_link = false
+[2021-03-09T11:32:02.233722 12316] Config: (default) hash_dir = true
+[2021-03-09T11:32:02.233722 12316] Config: (default) ignore_headers_in_manifest = 
+[2021-03-09T11:32:02.233722 12316] Config: (default) keep_comments_cpp = false
+[2021-03-09T11:32:02.233722 12316] Config: (default) limit_multiple = 0.8
+[2021-03-09T11:32:02.233722 12316] Config: (environment) log_file = C:\Users\blzza\OneDrive\Documents\mytube\mtube.build\ccache-15656.txt
+[2021-03-09T11:32:02.233722 12316] Config: (default) max_files = 0
+[2021-03-09T11:32:02.233722 12316] Config: (default) max_size = 5.0G
+[2021-03-09T11:32:02.233722 12316] Config: (default) path = 
+[2021-03-09T11:32:02.233722 12316] Config: (default) pch_external_checksum = false
+[2021-03-09T11:32:02.233722 12316] Config: (default) prefix_command = 
+[2021-03-09T11:32:02.233722 12316] Config: (default) prefix_command_cpp = 
+[2021-03-09T11:32:02.233722 12316] Config: (default) read_only = false
+[2021-03-09T11:32:02.233722 12316] Config: (default) read_only_direct = false
+[2021-03-09T11:32:02.233722 12316] Config: (default) recache = false
+[2021-03-09T11:32:02.233722 12316] Config: (default) run_second_cpp = true
+[2021-03-09T11:32:02.233722 12316] Config: (default) sloppiness = 
+[2021-03-09T11:32:02.233722 12316] Config: (default) stats = true
+[2021-03-09T11:32:02.233722 12316] Config: (default) temporary_dir = 
+[2021-03-09T11:32:02.233722 12316] Config: (default) umask = 
+[2021-03-09T11:32:02.234723 12316] Command line: C:\Users\blzza\AppData\Local\Nuitka\Nuitka\ccache\v3.7.12\ccache.exe C:\Users\blzza\AppData\Local\Nuitka\Nuitka\gcc\x86_64\10.2.0-11.0.0-8.0.0-r5\mingw64\bin\gcc.exe -o module.__main__.o -c -std=c11 -fvisibility=hidden -fwrapv -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -fcompare-debug-second -O3 -pipe -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=0 -D_NUITKA_EXE -IC:\Users\blzza\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\blzza\venv\lib\SITE-P~1\nuitka\build\include -IC:\Users\blzza\venv\lib\SITE-P~1\nuitka\build\static_src module.__main__.c
+ainProgram.c
+[2021-03-09T11:32:02.235722 7908 ] Hostname: LAPTOP-BNFR538A
+[2021-03-09T11:32:02.235722 12316] Hostname: LAPTOP-BNFR538A
+\blzza\OneDrive\Documents\mytube\mtube.build
+[2021-03-09T11:32:02.235722 12316] Working directory: C:\Users\blzza\OneDrive\Documents\mytube\mtube.build
+[2021-03-09T11:32:02.235722 7908 ] Source file: static_src\MainProgram.c
+[2021-03-09T11:32:02.235722 7908 ] Object file: static_src\MainProgram.o
+[2021-03-09T11:32:02.235722 12316] Source file: module.__main__.c
+[2021-03-09T11:32:02.235722 12316] Object file: module.__main__.o
+[2021-03-09T11:32:02.235722 7908 ] Trying direct lookup
+[2021-03-09T11:32:02.235722 12316] Trying direct lookup
+[2021-03-09T11:32:02.239721 7908 ] Looking for object file hash in C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/a/8359a36f8398a6a0a089569eee7974-24573.manifest
+[2021-03-09T11:32:02.239721 12316] Looking for object file hash in C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/3/9d243c0b0d16f440bd207cbaf3816f-21083.manifest
+[2021-03-09T11:32:02.239721 7908 ] No such manifest file
+[2021-03-09T11:32:02.239721 7908 ] Did not find object file hash in manifest
+[2021-03-09T11:32:02.240722 12316] No such manifest file
+[2021-03-09T11:32:02.240722 12316] Did not find object file hash in manifest
+[2021-03-09T11:32:02.241721 12316] Running preprocessor
+[2021-03-09T11:32:02.242720 7908 ] Running preprocessor
+[2021-03-09T11:32:02.252722 5384 ] === CCACHE 3.7.12 STARTED =========================================
+[2021-03-09T11:32:02.251722 19428] Config: (default) base_dir = 
+[2021-03-09T11:32:02.251722 19428] Config: (environment) cache_dir = C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2021-03-09T11:32:02.251722 19428] Config: (default) cache_dir_levels = 2
+[2021-03-09T11:32:02.251722 19428] Config: (default) compiler = 
+[2021-03-09T11:32:02.251722 19428] Config: (default) compiler_check = mtime
+[2021-03-09T11:32:02.251722 19428] Config: (default) compression = false
+[2021-03-09T11:32:02.251722 19428] Config: (default) compression_level = 6
+[2021-03-09T11:32:02.251722 19428] Config: (default) cpp_extension = 
+[2021-03-09T11:32:02.251722 19428] Config: (default) debug = false
+[2021-03-09T11:32:02.251722 19428] Config: (default) depend_mode = false
+[2021-03-09T11:32:02.251722 19428] Config: (default) direct_mode = true
+[2021-03-09T11:32:02.251722 19428] Config: (default) disable = false
+[2021-03-09T11:32:02.251722 19428] Config: (default) extra_files_to_hash = 
+[2021-03-09T11:32:02.251722 19428] Config: (default) hard_link = false
+[2021-03-09T11:32:02.251722 19428] Config: (default) hash_dir = true
+[2021-03-09T11:32:02.251722 19428] Config: (default) ignore_headers_in_manifest = 
+[2021-03-09T11:32:02.251722 19428] Config: (default) keep_comments_cpp = false
+[2021-03-09T11:32:02.251722 19428] Config: (default) limit_multiple = 0.8
+[2021-03-09T11:32:02.251722 19428] Config: (environment) log_file = C:\Users\blzza\OneDrive\Documents\mytube\mtube.build\ccache-15656.txt
+[2021-03-09T11:32:02.251722 19428] Config: (default) max_files = 0
+[2021-03-09T11:32:02.251722 19428] Config: (C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/ccache.conf) max_size = 5.0G
+[2021-03-09T11:32:02.251722 19428] Config: (default) path = 
+[2021-03-09T11:32:02.251722 19428] Config: (default) pch_external_checksum = false
+[2021-03-09T11:32:02.251722 19428] Config: (default) prefix_command = 
+[2021-03-09T11:32:02.251722 19428] Config: (default) prefix_command_cpp = 
+[2021-03-09T11:32:02.251722 19428] Config: (default) read_only = false
+[2021-03-09T11:32:02.251722 19428] Config: (default) read_only_direct = false
+[2021-03-09T11:32:02.251722 19428] Config: (default) recache = false
+[2021-03-09T11:32:02.251722 19428] Config: (default) run_second_cpp = true
+[2021-03-09T11:32:02.251722 19428] Config: (default) sloppiness = 
+[2021-03-09T11:32:02.251722 19428] Config: (default) stats = true
+[2021-03-09T11:32:02.251722 19428] Config: (default) temporary_dir = 
+[2021-03-09T11:32:02.251722 19428] Config: (default) umask = 
+[2021-03-09T11:32:02.252722 19428] Command line: C:\Users\blzza\AppData\Local\Nuitka\Nuitka\ccache\v3.7.12\ccache.exe C:\Users\blzza\AppData\Local\Nuitka\Nuitka\gcc\x86_64\10.2.0-11.0.0-8.0.0-r5\mingw64\bin\gcc.exe -o static_src\CompiledCellType.o -c -std=c11 -fvisibility=hidden -fwrapv -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -fcompare-debug-second -O3 -pipe -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=0 -D_NUITKA_EXE -IC:\Users\blzza\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\blzza\venv\lib\SITE-P~1\nuitka\build\include -IC:\Users\blzza\venv\lib\SITE-P~1\nuitka\build\stat[2021-03-09T11:32:02.251722 15984] Config: (default) base_dir [2021-03-09T11:32:02.252722 19428] Hostname: LAPTOP-BNFR538A
+ache_dir = C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2021-03-09T11:32:02.251722 15984] Config: (default) cache_dir_levels = 2
+[2021-03-09T11:32:02.251722 15984] Config: (default) compiler = 
+[2021-03-09T11:32:02.251722 15984] Config: (default) compiler_check = mtime
+[2021-03-09T11:32:02.251722 15984] Config: (default) compression = false
+[2021-03-09T11:32:02.251722 15984] Config: (default) compression_level = 6
+[2021-03-09T11:32:02.251722 15984] Config: (default) cpp_extension = 
+[2021-03-09T11:32:02.251722 15984] Config: (default) debug = false
+[2021-03-09T11:32:02.251722 15984] Config: (default) depend_mode = false
+[2021-03-09T11:32:02.251722 15984] Config: (default) direct_mode = true
+[2021-03-09T11:32:02.251722 15984] Config: (default) disable = false
+[2021-03-09T11:32:02.251722 15984] Config: (default) extra_files_to_hash = 
+[2021-03-09T11:32:02.251722 15984] Config: (default) hard_link = false
+[2021-03-09T11:32:02.251722 15984] Config: (default) hash_dir = true
+[2021-03-09T11:32:02.251722 15984] Config: (default) ignore_headers_in_manifest = 
+[2021-03-09T11:32:02.251722 15984] Config: (default) keep_comments_cpp = false
+[2021-03-09T11:32:02.251722 15984] Config: (default) limit_multiple = 0.8
+[2021-03-09T11:32:02.251722 15984] Config: (environment) log_file = C:\Users\blzza\OneDrive\Documents\mytube\mtube.build\ccache-15656.txt
+[2021-03-09T11:32:02.251722 15984] Config: (default) max_files = 0
+[2021-03-09T11:32:02.251722 15984] Config: (C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/ccache.conf) max_size = 5.0G
+[2021-03-09T11:32:02.251722 15984] Config: (default) path = 
+[2021-03-09T11:32:02.251722 15984] Config: (default) pch_external_checksum = false
+[2021-03-09T11:32:02.251722 15984] Config: (default) prefix_command = 
+[2021-03-09T11:32:02.251722 15984] Config: (default) prefix_command_cpp = 
+[2021-03-09T11:32:02.251722 15984] Config: (default) read_only = false
+[2021-03-09T11:32:02.251722 15984] Config: (default) read_only_direct = false
+[2021-03-09T11:32:02.251722 15984] Config: (default) recache = false
+[2021-03-09T11:32:02.251722 15984] Config: (default) run_second_cpp = true
+[2021-03-09T11:32:02.251722 15984] Config: (default) sloppiness = 
+[2021-03-09T11:32:02.251722 15984] Config: (default) stats = true
+[2021-03-09T11:32:02.251722 15984] Config: (default) temporary_dir = 
+[2021-03-09T11:32:02.251722 15984] Config: (default) umask = 
+[2021-03-09T11:32:02.252722 15984] Command line: C:\Users\blzza\AppData\Local\Nuitka\Nuitka\ccache\v3.7.12\ccache.exe C:\Users\blzza\AppData\Local\Nuitka\Nuitka\gcc\x86_64\10.2.0-11.0.0-8.0.0-r5\mingw64\bin\gcc.exe -o __constants.o -c -std=c11 -fvisibility=hidden -fwrapv -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -fcompare-debug-second -O3 -pipe -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=0 -D_NUITKA_EXE -IC:\Users\blzza\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\blzza\venv\lib\SITE-P~1\nuitka\build\include -IC:\Users\blzza\venv\lib\SITE-P~1\nuitka\build\static_src __constants.c
+_src static_src\CompiledFunctionType.c
+[2021-03-09T11:32:02.252722 1788 ] Hostname: LAPTOP-BNFR538A
+[2021-03-09T11:32:02.252722 19748] Working directory: C:\Users\blzza\OneDrive\Documents\mytube\mtube.build
+[2021-03-09T11:32:02.252722 1788 ] Working directory: C:\Users\blzza\OneDrive\Documents\mytube\mtube.build
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) base_dir = 
+[2021-03-09T11:32:02.252722 5384 ] Config: (environment) cache_dir = C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) cache_dir_levels = 2
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) compiler = 
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) compiler_check = mtime
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) compression = false
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) compression_level = 6
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) cpp_extension = 
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) debug = false
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) depend_mode = false
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) direct_mode = true
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) disable = false
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) extra_files_to_hash = 
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) hard_link = false
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) hash_dir = true
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) ignore_headers_in_manifest = 
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) keep_comments_cpp = false
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) limit_multiple = 0.8
+[2021-03-09T11:32:02.252722 5384 ] Config: (environment) log_file = C:\Users\blzza\OneDrive\Documents\mytube\mtube.build\ccache-15656.txt
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) max_files = 0
+[2021-03-09T11:32:02.252722 5384 ] Config: (C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/ccache.conf) max_size = 5.0G
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) path = 
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) pch_external_checksum = false
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) prefix_command = 
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) prefix_command_cpp = 
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) read_only = false
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) read_only_direct = false
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) recache = false
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) run_second_cpp = true
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) sloppiness = 
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) stats = true
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) temporary_dir = 
+[2021-03-09T11:32:02.252722 5384 ] Config: (default) umask = 
+[2021-03-09T11:32:02.252722 5384 ] Command line: C:\Users\blzza\AppData\Local\Nuitka\Nuitka\ccache\v3.7.12\ccache.exe C:\Users\blzza\AppData\Local\Nuitka\Nuitka\gcc\x86_64\10.2.0-11.0.0-8.0.0-r5\mingw64\bin\gcc.exe -o static_src\CompiledGeneratorType.o -c -std=c11 -fvisibility=hidden -fwrapv -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -fcompare-debug-second -O3 -pipe -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=0 -D_NUITKA_EXE -IC:\Users\blzza\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\blzza\venv\lib\SITE-P~1\nuitka\build\include -IC:\Users\blzza\venv\lib\SITE-P~1\nuitka\build\s[2021-03-09T11:32:02.253721 15984] Hostname: L[2021-03-09T11:32:02.253721 19880] Hostname: LAPTOP-BNFR538A
+[2021-03-09T11:32:02.253721 5384 ] Hostname: LAPTOP-BNFR538A
+[2021-03-09T11:32:02.253721 19428] Working directory: C:\Users\blzza\OneDrive\Documents\mytube\mtube.build
+[2021-03-09T11:32:02.253721 5384 ] Working directory: C:\Users\blzza\OneDrive\Documents\mytube\mtube.build
+[2021-03-09T11:32:02.253721 19880] Working directory: C:\Users\blzza\OneDrive\Documents\mytube\mtube.build
+[2021-03-09T11:32:02.253721 19748] Source file: __loader.c
+[2021-03-09T11:32:02.253721 19748] Object file: __loader.o
+[2021-03-09T11:32:02.253721 19428] Source file: static_src\CompiledCellType.c
+[2021-03-09T11:32:02.253721 19428] Object file: static_src\CompiledCellType.o
+[2021-03-09T11:32:02.253721 15984] Source file: __constants.c
+[2021-03-09T11:32:02.253721 15984] Object file: __constants.o
+[2021-03-09T11:32:02.253721 19428] Trying direct lookup
+[2021-03-09T11:32:02.254724 15984] Trying direct lookup
+[2021-03-09T11:32:02.254724 19748] Looking for object file hash in C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/4/e/7e85742bcb0dab17af31d8dfdc89e3-2965.manifest
+[2021-03-09T11:32:02.254724 19748] No such manifest file
+[2021-03-09T11:32:02.254724 19748] Did not find object file hash in manifest
+[2021-03-09T11:32:02.254724 5384 ] Source file: static_src\CompiledGeneratorType.c
+[2021-03-09T11:32:02.254724 5384 ] Object file: static_src\CompiledGeneratorType.o
+[2021-03-09T11:32:02.254724 5384 ] Trying direct lookup
+[2021-03-09T11:32:02.254724 1788 ] Source file: static_src\CompiledFunctionType.c
+[2021-03-09T11:32:02.254724 1788 ] Object file: static_src\CompiledFunctionType.o
+[2021-03-09T11:32:02.254724 1788 ] Trying direct lookup
+[2021-03-09T11:32:02.255725 19748] Running preprocessor
+[2021-03-09T11:32:02.255725 19880] Source file: __helpers.c
+[2021-03-09T11:32:02.255725 19880] Object file: __helpers.o
+[2021-03-09T11:32:02.256725 19880] Trying direct lookup
+[2021-03-09T11:32:02.258726 19880] Looking for object file hash in C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/b/3d8f5c383fb443a2dc7873ff7a588a-61875.manifest
+[2021-03-09T11:32:02.258726 19880] No such manifest file
+[2021-03-09T11:32:02.258726 19880] Did not find object file hash in manifest
+[2021-03-09T11:32:02.258726 15984] Looking for object file hash in C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/8/4d3491490d32d0e995e7b30426d37c-4702.manifest
+[2021-03-09T11:32:02.258726 15984] No such manifest file
+[2021-03-09T11:32:02.258726 15984] Did not find object file hash in manifest
+[2021-03-09T11:32:02.259721 19880] Running preprocessor
+[2021-03-09T11:32:02.259721 15984] Running preprocessor
+[2021-03-09T11:32:02.260724 5384 ] Looking for object file hash in C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/6/8/6146ac7a3332ec36555753ab2951cb-57400.manifest
+[2021-03-09T11:32:02.261723 5384 ] No such manifest file
+[2021-03-09T11:32:02.261723 5384 ] Did not find object file hash in manifest
+[2021-03-09T11:32:02.262721 5384 ] Running preprocessor
+[2021-03-09T11:32:02.264723 1788 ] Looking for object file hash in C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/4/e6713e48c73af95b3e76b726ad6ccb-78951.manifest
+[2021-03-09T11:32:02.264723 1788 ] No such manifest file
+[2021-03-09T11:32:02.264723 1788 ] Did not find object file hash in manifest
+[2021-03-09T11:32:02.265721 1788 ] Running preprocessor
+[2021-03-09T11:32:02.265721 19428] Looking for object file hash in C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/9/71f4bca7069bee0038d0a3b9ff2695-7970.manifest
+[2021-03-09T11:32:02.265721 19428] No such manifest file
+[2021-03-09T11:32:02.265721 19428] Did not find object file hash in manifest
+[2021-03-09T11:32:02.266722 19428] Running preprocessor
+[2021-03-09T11:32:02.593723 19748] Got object file hash from preprocessor
+[2021-03-09T11:32:02.593723 19748] Object file C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/a/e8cde6b56e6c91c560b612d1429ed8-439833.o not in cache
+[2021-03-09T11:32:02.593723 19748] Running real compiler
+[2021-03-09T11:32:02.677721 12316] Got object file hash from preprocessor
+[2021-03-09T11:32:02.677721 12316] Object file C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/b/45960c05f9e4e9ac2661debf0502ef-621803.o not in cache
+[2021-03-09T11:32:02.677721 12316] Running real compiler
+[2021-03-09T11:32:02.678722 19428] Got object file hash from preprocessor
+[2021-03-09T11:32:02.678722 19428] Object file C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/0/c12bbe8e2fdacd4c249435dc683fd0-618396.o not in cache
+[2021-03-09T11:32:02.678722 19428] Running real compiler
+[2021-03-09T11:32:02.683723 19880] Got object file hash from preprocessor
+[2021-03-09T11:32:02.683723 19880] Object file C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/4/f1ebd0cf97dac9b2ecd057ef65253b-651503.o not in cache
+[2021-03-09T11:32:02.683723 19880] Running real compiler
+[2021-03-09T11:32:02.683723 15984] Got object file hash from preprocessor
+[2021-03-09T11:32:02.684723 15984] Object file C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/3/97f8c8f302b008916c86ef0399800d-614761.o not in cache
+[2021-03-09T11:32:02.684723 15984] Running real compiler
+[2021-03-09T11:32:02.695724 1788 ] Got object file hash from preprocessor
+[2021-03-09T11:32:02.695724 1788 ] Object file C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/1/a7f54c02f8c10036dc42c83c4ce3de-698490.o not in cache
+[2021-03-09T11:32:02.695724 1788 ] Running real compiler
+[2021-03-09T11:32:02.699723 5384 ] Got object file hash from preprocessor
+[2021-03-09T11:32:02.699723 5384 ] Object file C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/6/57cae702cbca32967d6928e1e7e004-791730.o not in cache
+[2021-03-09T11:32:02.699723 5384 ] Running real compiler
+[2021-03-09T11:32:02.849722 19748] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/a/e8cde6b56e6c91c560b612d1429ed8-439833.o.tmp.stdout.LAPTOP-BNFR538A.19748.1QBI6D
+[2021-03-09T11:32:02.850724 19748] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/a/e8cde6b56e6c91c560b612d1429ed8-439833.o.tmp.stderr.LAPTOP-BNFR538A.19748.SS92c3
+[2021-03-09T11:32:02.855722 19748] Copying __loader.o to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/a/e8cde6b56e6c91c560b612d1429ed8-439833.o via C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/a/e8cde6b56e6c91c560b612d1429ed8-439833.o.LAPTOP-BNFR538A.19748.1Apgjk (uncompressed)
+[2021-03-09T11:32:02.856722 19748] Stored in cache: __loader.o -> C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/a/e8cde6b56e6c91c560b612d1429ed8-439833.o (copied)
+[2021-03-09T11:32:02.863721 19748] Added object file hash to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/4/e/7e85742bcb0dab17af31d8dfdc89e3-2965.manifest
+[2021-03-09T11:32:02.863721 19748] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/4/stats.lock
+[2021-03-09T11:32:02.866721 19748] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/4/stats.lock
+[2021-03-09T11:32:02.867722 19748] Result: cache miss
+[2021-03-09T11:32:02.868722 19748] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/stats.lock
+[2021-03-09T11:32:02.870724 19748] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/stats.lock
+[2021-03-09T11:32:02.968723 15984] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/3/97f8c8f302b008916c86ef0399800d-614761.o.tmp.stdout.LAPTOP-BNFR538A.15984.1QBI6D
+[2021-03-09T11:32:02.968723 15984] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/3/97f8c8f302b008916c86ef0399800d-614761.o.tmp.stderr.LAPTOP-BNFR538A.15984.SS92c3
+[2021-03-09T11:32:02.974725 15984] Copying __constants.o to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/3/97f8c8f302b008916c86ef0399800d-614761.o via C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/3/97f8c8f302b008916c86ef0399800d-614761.o.LAPTOP-BNFR538A.15984.1Apgjk (uncompressed)
+[2021-03-09T11:32:02.975723 15984] Stored in cache: __constants.o -> C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/3/97f8c8f302b008916c86ef0399800d-614761.o (copied)
+[2021-03-09T11:32:02.983721 15984] Added object file hash to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/8/4d3491490d32d0e995e7b30426d37c-4702.manifest
+[2021-03-09T11:32:02.985724 15984] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/stats.lock
+[2021-03-09T11:32:02.988723 15984] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/stats.lock
+[2021-03-09T11:32:02.989723 15984] Result: cache miss
+[2021-03-09T11:32:02.989723 15984] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/stats.lock
+[2021-03-09T11:32:02.992724 15984] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/stats.lock
+[2021-03-09T11:32:03.055726 19428] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/0/c12bbe8e2fdacd4c249435dc683fd0-618396.o.tmp.stdout.LAPTOP-BNFR538A.19428.1QBI6D
+[2021-03-09T11:32:03.055726 19428] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/0/c12bbe8e2fdacd4c249435dc683fd0-618396.o.tmp.stderr.LAPTOP-BNFR538A.19428.SS92c3
+[2021-03-09T11:32:03.060724 19428] Copying static_src\CompiledCellType.o to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/0/c12bbe8e2fdacd4c249435dc683fd0-618396.o via C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/0/c12bbe8e2fdacd4c249435dc683fd0-618396.o.LAPTOP-BNFR538A.19428.1Apgjk (uncompressed)
+[2021-03-09T11:32:03.063723 19428] Stored in cache: static_src\CompiledCellType.o -> C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/0/c12bbe8e2fdacd4c249435dc683fd0-618396.o (copied)
+[2021-03-09T11:32:03.070727 19428] Added object file hash to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/9/71f4bca7069bee0038d0a3b9ff2695-7970.manifest
+[2021-03-09T11:32:03.070727 19428] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/stats.lock
+[2021-03-09T11:32:03.072723 19428] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/stats.lock
+[2021-03-09T11:32:03.074724 19428] Result: cache miss
+[2021-03-09T11:32:03.074724 19428] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/stats.lock
+[2021-03-09T11:32:03.076725 19428] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/stats.lock
+[2021-03-09T11:32:03.123724 12316] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/b/45960c05f9e4e9ac2661debf0502ef-621803.o.tmp.stdout.LAPTOP-BNFR538A.12316.SS92c3
+[2021-03-09T11:32:03.123724 12316] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/b/45960c05f9e4e9ac2661debf0502ef-621803.o.tmp.stderr.LAPTOP-BNFR538A.12316.1Apgjk
+[2021-03-09T11:32:03.131727 12316] Copying module.__main__.o to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/b/45960c05f9e4e9ac2661debf0502ef-621803.o via C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/b/45960c05f9e4e9ac2661debf0502ef-621803.o.LAPTOP-BNFR538A.12316.9lVK7d (uncompressed)
+[2021-03-09T11:32:03.133725 12316] Stored in cache: module.__main__.o -> C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/b/45960c05f9e4e9ac2661debf0502ef-621803.o (copied)
+[2021-03-09T11:32:03.137723 12316] Added object file hash to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/3/9d243c0b0d16f440bd207cbaf3816f-21083.manifest
+[2021-03-09T11:32:03.138725 12316] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/stats.lock
+[2021-03-09T11:32:03.141725 12316] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/stats.lock
+[2021-03-09T11:32:03.142725 12316] Result: cache miss
+[2021-03-09T11:32:03.143724 12316] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/stats.lock
+[2021-03-09T11:32:03.145725 12316] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/stats.lock
+[2021-03-09T11:32:03.160728 404  ] === CCACHE 3.7.12 STARTED =========================================
+[2021-03-09T11:32:03.160728 404  ] Config: (default) base_dir = 
+[2021-03-09T11:32:03.160728 404  ] Config: (environment) cache_dir = C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2021-03-09T11:32:03.160728 404  ] Config: (default) cache_dir_levels = 2
+[2021-03-09T11:32:03.160728 404  ] Config: (default) compiler = 
+[2021-03-09T11:32:03.160728 404  ] Config: (default) compiler_check = mtime
+[2021-03-09T11:32:03.160728 404  ] Config: (default) compression = false
+[2021-03-09T11:32:03.160728 404  ] Config: (default) compression_level = 6
+[2021-03-09T11:32:03.160728 404  ] Config: (default) cpp_extension = 
+[2021-03-09T11:32:03.160728 404  ] Config: (default) debug = false
+[2021-03-09T11:32:03.160728 404  ] Config: (default) depend_mode = false
+[2021-03-09T11:32:03.160728 404  ] Config: (default) direct_mode = true
+[2021-03-09T11:32:03.160728 404  ] Config: (default) disable = false
+[2021-03-09T11:32:03.160728 404  ] Config: (default) extra_files_to_hash = 
+[2021-03-09T11:32:03.160728 404  ] Config: (default) hard_link = false
+[2021-03-09T11:32:03.160728 404  ] Config: (default) hash_dir = true
+[2021-03-09T11:32:03.160728 404  ] Config: (default) ignore_headers_in_manifest = 
+[2021-03-09T11:32:03.160728 404  ] Config: (default) keep_comments_cpp = false
+[2021-03-09T11:32:03.160728 404  ] Config: (default) limit_multiple = 0.8
+[2021-03-09T11:32:03.160728 404  ] Config: (environment) log_file = C:\Users\blzza\OneDrive\Documents\mytube\mtube.build\ccache-15656.txt
+[2021-03-09T11:32:03.160728 404  ] Config: (default) max_files = 0
+[2021-03-09T11:32:03.160728 404  ] Config: (C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/ccache.conf) max_size = 5.0G
+[2021-03-09T11:32:03.160728 404  ] Config: (default) path = 
+[2021-03-09T11:32:03.160728 404  ] Config: (default) pch_external_checksum = false
+[2021-03-09T11:32:03.160728 404  ] Config: (default) prefix_command = 
+[2021-03-09T11:32:03.160728 404  ] Config: (default) prefix_command_cpp = 
+[2021-03-09T11:32:03.160728 404  ] Config: (default) read_only = false
+[2021-03-09T11:32:03.160728 404  ] Config: (default) read_only_direct = false
+[2021-03-09T11:32:03.160728 404  ] Config: (default) recache = false
+[2021-03-09T11:32:03.160728 404  ] Config: (default) run_second_cpp = true
+[2021-03-09T11:32:03.160728 404  ] Config: (default) sloppiness = 
+[2021-03-09T11:32:03.160728 404  ] Config: (default) stats = true
+[2021-03-09T11:32:03.160728 404  ] Config: (default) temporary_dir = 
+[2021-03-09T11:32:03.160728 404  ] Config: (default) umask = 
+[2021-03-09T11:32:03.160728 404  ] Command line: C:\Users\blzza\AppData\Local\Nuitka\Nuitka\ccache\v3.7.12\ccache.exe C:\Users\blzza\AppData\Local\Nuitka\Nuitka\gcc\x86_64\10.2.0-11.0.0-8.0.0-r5\mingw64\bin\gcc.exe -o static_src\CompiledCodeHelpers.o -c -std=c11 -fvisibility=hidden -fwrapv -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -fcompare-debug-second -O3 -pipe -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=0 -D_NUITKA_EXE -IC:\Users\blzza\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\blzza\venv\lib\SITE-P~1\nuitka\build\include -IC:\Users\blzza\venv\lib\SITE-P~1\nuitka\build\static_src static_src\CompiledCodeHelpers.c
+[2021-03-09T11:32:03.161725 404  ] Hostname: LAPTOP-BNFR538A
+[2021-03-09T11:32:03.161725 404  ] Working directory: C:\Users\blzza\OneDrive\Documents\mytube\mtube.build
+[2021-03-09T11:32:03.161725 404  ] Source file: static_src\CompiledCodeHelpers.c
+[2021-03-09T11:32:03.161725 404  ] Object file: static_src\CompiledCodeHelpers.o
+[2021-03-09T11:32:03.162730 404  ] Trying direct lookup
+[2021-03-09T11:32:03.166729 404  ] Looking for object file hash in C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/4/56c4135e71e15a72ce1a130557ad6e-57111.manifest
+[2021-03-09T11:32:03.166729 404  ] No such manifest file
+[2021-03-09T11:32:03.166729 404  ] Did not find object file hash in manifest
+[2021-03-09T11:32:03.167724 404  ] Running preprocessor
+[2021-03-09T11:32:03.182721 14504] === CCACHE 3.7.12 STARTED =========================================
+[2021-03-09T11:32:03.182721 14504] Config: (default) base_dir = 
+[2021-03-09T11:32:03.182721 14504] Config: (environment) cache_dir = C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2021-03-09T11:32:03.182721 14504] Config: (default) cache_dir_levels = 2
+[2021-03-09T11:32:03.182721 14504] Config: (default) compiler = 
+[2021-03-09T11:32:03.182721 14504] Config: (default) compiler_check = mtime
+[2021-03-09T11:32:03.182721 14504] Config: (default) compression = false
+[2021-03-09T11:32:03.182721 14504] Config: (default) compression_level = 6
+[2021-03-09T11:32:03.182721 14504] Config: (default) cpp_extension = 
+[2021-03-09T11:32:03.182721 14504] Config: (default) debug = false
+[2021-03-09T11:32:03.182721 14504] Config: (default) depend_mode = false
+[2021-03-09T11:32:03.182721 14504] Config: (default) direct_mode = true
+[2021-03-09T11:32:03.182721 14504] Config: (default) disable = false
+[2021-03-09T11:32:03.182721 14504] Config: (default) extra_files_to_hash = 
+[2021-03-09T11:32:03.182721 14504] Config: (default) hard_link = false
+[2021-03-09T11:32:03.182721 14504] Config: (default) hash_dir = true
+[2021-03-09T11:32:03.182721 14504] Config: (default) ignore_headers_in_manifest = 
+[2021-03-09T11:32:03.182721 14504] Config: (default) keep_comments_cpp = false
+[2021-03-09T11:32:03.182721 14504] Config: (default) limit_multiple = 0.8
+[2021-03-09T11:32:03.182721 14504] Config: (environment) log_file = C:\Users\blzza\OneDrive\Documents\mytube\mtube.build\ccache-15656.txt
+[2021-03-09T11:32:03.182721 14504] Config: (default) max_files = 0
+[2021-03-09T11:32:03.182721 14504] Config: (C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/ccache.conf) max_size = 5.0G
+[2021-03-09T11:32:03.182721 14504] Config: (default) path = 
+[2021-03-09T11:32:03.182721 14504] Config: (default) pch_external_checksum = false
+[2021-03-09T11:32:03.182721 14504] Config: (default) prefix_command = 
+[2021-03-09T11:32:03.182721 14504] Config: (default) prefix_command_cpp = 
+[2021-03-09T11:32:03.182721 14504] Config: (default) read_only = false
+[2021-03-09T11:32:03.182721 14504] Config: (default) read_only_direct = false
+[2021-03-09T11:32:03.182721 14504] Config: (default) recache = false
+[2021-03-09T11:32:03.182721 14504] Config: (default) run_second_cpp = true
+[2021-03-09T11:32:03.182721 14504] Config: (default) sloppiness = 
+[2021-03-09T11:32:03.182721 14504] Config: (default) stats = true
+[2021-03-09T11:32:03.182721 14504] Config: (default) temporary_dir = 
+[2021-03-09T11:32:03.182721 14504] Config: (default) umask = 
+[2021-03-09T11:32:03.183722 14504] Command line: C:\Users\blzza\AppData\Local\Nuitka\Nuitka\ccache\v3.7.12\ccache.exe C:\Users\blzza\AppData\Local\Nuitka\Nuitka\gcc\x86_64\10.2.0-11.0.0-8.0.0-r5\mingw64\bin\gcc.exe -o static_src\InspectPatcher.o -c -std=c11 -fvisibility=hidden -fwrapv -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -fcompare-debug-second -O3 -pipe -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=0 -D_NUITKA_EXE -IC:\Users\blzza\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\blzza\venv\lib\SITE-P~1\nuitka\build\include -IC:\Users\blzza\venv\lib\SITE-P~1\nuitka\build\static_src static_src\InspectPatcher.c
+[2021-03-09T11:32:03.183722 14504] Hostname: LAPTOP-BNFR538A
+[2021-03-09T11:32:03.183722 14504] Working directory: C:\Users\blzza\OneDrive\Documents\mytube\mtube.build
+[2021-03-09T11:32:03.184726 14504] Source file: static_src\InspectPatcher.c
+[2021-03-09T11:32:03.184726 14504] Object file: static_src\InspectPatcher.o
+[2021-03-09T11:32:03.184726 14504] Trying direct lookup
+[2021-03-09T11:32:03.190723 14504] Looking for object file hash in C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/8/03f9b1f6bf24fb04c936f922e9f814-13634.manifest
+[2021-03-09T11:32:03.190723 14504] No such manifest file
+[2021-03-09T11:32:03.190723 14504] Did not find object file hash in manifest
+[2021-03-09T11:32:03.192723 14504] Running preprocessor
+[2021-03-09T11:32:03.215724 16816] === CCACHE 3.7.12 STARTED =========================================
+[2021-03-09T11:32:03.215724 16816] Config: (default) base_dir = 
+[2021-03-09T11:32:03.215724 16816] Config: (environment) cache_dir = C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2021-03-09T11:32:03.215724 16816] Config: (default) cache_dir_levels = 2
+[2021-03-09T11:32:03.215724 16816] Config: (default) compiler = 
+[2021-03-09T11:32:03.215724 16816] Config: (default) compiler_check = mtime
+[2021-03-09T11:32:03.215724 16816] Config: (default) compression = false
+[2021-03-09T11:32:03.215724 16816] Config: (default) compression_level = 6
+[2021-03-09T11:32:03.215724 16816] Config: (default) cpp_extension = 
+[2021-03-09T11:32:03.215724 16816] Config: (default) debug = false
+[2021-03-09T11:32:03.215724 16816] Config: (default) depend_mode = false
+[2021-03-09T11:32:03.215724 16816] Config: (default) direct_mode = true
+[2021-03-09T11:32:03.215724 16816] Config: (default) disable = false
+[2021-03-09T11:32:03.215724 16816] Config: (default) extra_files_to_hash = 
+[2021-03-09T11:32:03.215724 16816] Config: (default) hard_link = false
+[2021-03-09T11:32:03.215724 16816] Config: (default) hash_dir = true
+[2021-03-09T11:32:03.215724 16816] Config: (default) ignore_headers_in_manifest = 
+[2021-03-09T11:32:03.215724 16816] Config: (default) keep_comments_cpp = false
+[2021-03-09T11:32:03.215724 16816] Config: (default) limit_multiple = 0.8
+[2021-03-09T11:32:03.215724 16816] Config: (environment) log_file = C:\Users\blzza\OneDrive\Documents\mytube\mtube.build\ccache-15656.txt
+[2021-03-09T11:32:03.215724 16816] Config: (default) max_files = 0
+[2021-03-09T11:32:03.215724 16816] Config: (C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/ccache.conf) max_size = 5.0G
+[2021-03-09T11:32:03.215724 16816] Config: (default) path = 
+[2021-03-09T11:32:03.215724 16816] Config: (default) pch_external_checksum = false
+[2021-03-09T11:32:03.215724 16816] Config: (default) prefix_command = 
+[2021-03-09T11:32:03.215724 16816] Config: (default) prefix_command_cpp = 
+[2021-03-09T11:32:03.215724 16816] Config: (default) read_only = false
+[2021-03-09T11:32:03.215724 16816] Config: (default) read_only_direct = false
+[2021-03-09T11:32:03.215724 16816] Config: (default) recache = false
+[2021-03-09T11:32:03.215724 16816] Config: (default) run_second_cpp = true
+[2021-03-09T11:32:03.215724 16816] Config: (default) sloppiness = 
+[2021-03-09T11:32:03.215724 16816] Config: (default) stats = true
+[2021-03-09T11:32:03.215724 16816] Config: (default) temporary_dir = 
+[2021-03-09T11:32:03.215724 16816] Config: (default) umask = 
+[2021-03-09T11:32:03.215724 16816] Command line: C:\Users\blzza\AppData\Local\Nuitka\Nuitka\ccache\v3.7.12\ccache.exe C:\Users\blzza\AppData\Local\Nuitka\Nuitka\gcc\x86_64\10.2.0-11.0.0-8.0.0-r5\mingw64\bin\gcc.exe -o static_src\MetaPathBasedLoader.o -c -std=c11 -fvisibility=hidden -fwrapv -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -fcompare-debug-second -O3 -pipe -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=0 -D_NUITKA_EXE -IC:\Users\blzza\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\blzza\venv\lib\SITE-P~1\nuitka\build\include -IC:\Users\blzza\venv\lib\SITE-P~1\nuitka\build\static_src static_src\MetaPathBasedLoader.c
+[2021-03-09T11:32:03.215724 16816] Hostname: LAPTOP-BNFR538A
+[2021-03-09T11:32:03.215724 16816] Working directory: C:\Users\blzza\OneDrive\Documents\mytube\mtube.build
+[2021-03-09T11:32:03.216729 16816] Source file: static_src\MetaPathBasedLoader.c
+[2021-03-09T11:32:03.216729 16816] Object file: static_src\MetaPathBasedLoader.o
+[2021-03-09T11:32:03.216729 16816] Trying direct lookup
+[2021-03-09T11:32:03.222728 16816] Looking for object file hash in C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/1/ce2c833a220705d03c6f989f3257fe-52228.manifest
+[2021-03-09T11:32:03.222728 16816] No such manifest file
+[2021-03-09T11:32:03.222728 16816] Did not find object file hash in manifest
+[2021-03-09T11:32:03.223723 16816] Running preprocessor
+[2021-03-09T11:32:03.471726 14504] Got object file hash from preprocessor
+[2021-03-09T11:32:03.471726 14504] Object file C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/e/12e8c31823bda36337631ee2ca5978-624081.o not in cache
+[2021-03-09T11:32:03.471726 14504] Running real compiler
+[2021-03-09T11:32:03.502724 19880] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/4/f1ebd0cf97dac9b2ecd057ef65253b-651503.o.tmp.stdout.LAPTOP-BNFR538A.19880.1QBI6D
+[2021-03-09T11:32:03.502724 19880] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/4/f1ebd0cf97dac9b2ecd057ef65253b-651503.o.tmp.stderr.LAPTOP-BNFR538A.19880.SS92c3
+[2021-03-09T11:32:03.507730 19880] Copying __helpers.o to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/4/f1ebd0cf97dac9b2ecd057ef65253b-651503.o via C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/4/f1ebd0cf97dac9b2ecd057ef65253b-651503.o.LAPTOP-BNFR538A.19880.1Apgjk (uncompressed)
+[2021-03-09T11:32:03.509725 19880] Stored in cache: __helpers.o -> C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/4/f1ebd0cf97dac9b2ecd057ef65253b-651503.o (copied)
+[2021-03-09T11:32:03.514723 19880] Added object file hash to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/b/3d8f5c383fb443a2dc7873ff7a588a-61875.manifest
+[2021-03-09T11:32:03.515723 19880] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/stats.lock
+[2021-03-09T11:32:03.517723 19880] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/stats.lock
+[2021-03-09T11:32:03.519725 19880] Result: cache miss
+[2021-03-09T11:32:03.519725 19880] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/stats.lock
+[2021-03-09T11:32:03.522726 19880] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/stats.lock
+[2021-03-09T11:32:03.781723 7908 ] Got object file hash from preprocessor
+[2021-03-09T11:32:03.781723 7908 ] Object file C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/b/5105f181151b848bff7b06c797d2bb-4101503.o not in cache
+[2021-03-09T11:32:03.781723 7908 ] Running real compiler
+[2021-03-09T11:32:03.782722 14504] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/e/12e8c31823bda36337631ee2ca5978-624081.o.tmp.stdout.LAPTOP-BNFR538A.14504.1QBI6D
+[2021-03-09T11:32:03.782722 14504] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/e/12e8c31823bda36337631ee2ca5978-624081.o.tmp.stderr.LAPTOP-BNFR538A.14504.SS92c3
+[2021-03-09T11:32:03.787238 14504] Copying static_src\InspectPatcher.o to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/e/12e8c31823bda36337631ee2ca5978-624081.o via C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/e/12e8c31823bda36337631ee2ca5978-624081.o.LAPTOP-BNFR538A.14504.1Apgjk (uncompressed)
+[2021-03-09T11:32:03.823393 16816] Got object file hash from preprocessor
+[2021-03-09T11:32:03.823393 16816] Object file C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/3/76ec2cdaeea2bd3d0b1dc3086256f8-2973663.o not in cache
+[2021-03-09T11:32:03.823393 16816] Running real compiler
+[2021-03-09T11:32:03.835937 14504] Stored in cache: static_src\InspectPatcher.o -> C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/e/12e8c31823bda36337631ee2ca5978-624081.o (copied)
+[2021-03-09T11:32:03.841937 14504] Added object file hash to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/8/03f9b1f6bf24fb04c936f922e9f814-13634.manifest
+[2021-03-09T11:32:03.842936 14504] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/stats.lock
+[2021-03-09T11:32:03.845934 14504] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/stats.lock
+[2021-03-09T11:32:03.846936 14504] Result: cache miss
+[2021-03-09T11:32:03.847935 14504] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/stats.lock
+[2021-03-09T11:32:03.849935 14504] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/stats.lock
+[2021-03-09T11:32:04.108452 1788 ] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/1/a7f54c02f8c10036dc42c83c4ce3de-698490.o.tmp.stdout.LAPTOP-BNFR538A.1788.1QBI6D
+[2021-03-09T11:32:04.109452 1788 ] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/1/a7f54c02f8c10036dc42c83c4ce3de-698490.o.tmp.stderr.LAPTOP-BNFR538A.1788.SS92c3
+[2021-03-09T11:32:04.114454 1788 ] Copying static_src\CompiledFunctionType.o to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/1/a7f54c02f8c10036dc42c83c4ce3de-698490.o via C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/1/a7f54c02f8c10036dc42c83c4ce3de-698490.o.LAPTOP-BNFR538A.1788.1Apgjk (uncompressed)
+[2021-03-09T11:32:04.116453 1788 ] Stored in cache: static_src\CompiledFunctionType.o -> C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/1/a7f54c02f8c10036dc42c83c4ce3de-698490.o (copied)
+[2021-03-09T11:32:04.121976 1788 ] Added object file hash to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/4/e6713e48c73af95b3e76b726ad6ccb-78951.manifest
+[2021-03-09T11:32:04.122981 1788 ] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/stats.lock
+[2021-03-09T11:32:04.171685 1788 ] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/stats.lock
+[2021-03-09T11:32:04.172685 1788 ] Result: cache miss
+[2021-03-09T11:32:04.172685 1788 ] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/stats.lock
+[2021-03-09T11:32:04.173685 1788 ] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/stats.lock
+[2021-03-09T11:32:04.571214 404  ] Got object file hash from preprocessor
+[2021-03-09T11:32:04.571214 404  ] Object file C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/2/d/3f0890543fba1a8736864a95708340-5276277.o not in cache
+[2021-03-09T11:32:04.571214 404  ] Running real compiler
+[2021-03-09T11:32:04.817305 16816] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/3/76ec2cdaeea2bd3d0b1dc3086256f8-2973663.o.tmp.stdout.LAPTOP-BNFR538A.16816.1QBI6D
+[2021-03-09T11:32:04.818305 16816] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/3/76ec2cdaeea2bd3d0b1dc3086256f8-2973663.o.tmp.stderr.LAPTOP-BNFR538A.16816.SS92c3
+[2021-03-09T11:32:04.821307 16816] Copying static_src\MetaPathBasedLoader.o to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/3/76ec2cdaeea2bd3d0b1dc3086256f8-2973663.o via C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/3/76ec2cdaeea2bd3d0b1dc3086256f8-2973663.o.LAPTOP-BNFR538A.16816.1Apgjk (uncompressed)
+[2021-03-09T11:32:04.823305 16816] Stored in cache: static_src\MetaPathBasedLoader.o -> C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/3/76ec2cdaeea2bd3d0b1dc3086256f8-2973663.o (copied)
+[2021-03-09T11:32:04.879549 16816] Added object file hash to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/1/ce2c833a220705d03c6f989f3257fe-52228.manifest
+[2021-03-09T11:32:04.880550 16816] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/stats.lock
+[2021-03-09T11:32:04.881550 16816] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/stats.lock
+[2021-03-09T11:32:04.883552 16816] Result: cache miss
+[2021-03-09T11:32:04.883552 16816] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/stats.lock
+[2021-03-09T11:32:04.885550 16816] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/stats.lock
+[2021-03-09T11:32:04.905553 7908 ] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/b/5105f181151b848bff7b06c797d2bb-4101503.o.tmp.stdout.LAPTOP-BNFR538A.7908.SS92c3
+[2021-03-09T11:32:04.905553 7908 ] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/b/5105f181151b848bff7b06c797d2bb-4101503.o.tmp.stderr.LAPTOP-BNFR538A.7908.1Apgjk
+[2021-03-09T11:32:04.909552 7908 ] Copying static_src\MainProgram.o to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/b/5105f181151b848bff7b06c797d2bb-4101503.o via C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/b/5105f181151b848bff7b06c797d2bb-4101503.o.LAPTOP-BNFR538A.7908.9lVK7d (uncompressed)
+[2021-03-09T11:32:04.910551 7908 ] Stored in cache: static_src\MainProgram.o -> C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/b/5105f181151b848bff7b06c797d2bb-4101503.o (copied)
+[2021-03-09T11:32:04.914552 7908 ] Added object file hash to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/a/8359a36f8398a6a0a089569eee7974-24573.manifest
+[2021-03-09T11:32:04.915552 7908 ] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/stats.lock
+[2021-03-09T11:32:04.917548 7908 ] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/stats.lock
+[2021-03-09T11:32:04.918549 7908 ] Result: cache miss
+[2021-03-09T11:32:04.918549 7908 ] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/stats.lock
+[2021-03-09T11:32:04.919549 7908 ] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/stats.lock
+[2021-03-09T11:32:04.964549 5384 ] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/6/57cae702cbca32967d6928e1e7e004-791730.o.tmp.stdout.LAPTOP-BNFR538A.5384.1QBI6D
+[2021-03-09T11:32:04.964549 5384 ] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/6/57cae702cbca32967d6928e1e7e004-791730.o.tmp.stderr.LAPTOP-BNFR538A.5384.SS92c3
+[2021-03-09T11:32:04.969550 5384 ] Copying static_src\CompiledGeneratorType.o to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/6/57cae702cbca32967d6928e1e7e004-791730.o via C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/6/57cae702cbca32967d6928e1e7e004-791730.o.LAPTOP-BNFR538A.5384.1Apgjk (uncompressed)
+[2021-03-09T11:32:04.970549 5384 ] Stored in cache: static_src\CompiledGeneratorType.o -> C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/6/57cae702cbca32967d6928e1e7e004-791730.o (copied)
+[2021-03-09T11:32:04.973549 5384 ] Added object file hash to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/6/8/6146ac7a3332ec36555753ab2951cb-57400.manifest
+[2021-03-09T11:32:04.973549 5384 ] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/6/stats.lock
+[2021-03-09T11:32:04.974548 5384 ] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/6/stats.lock
+[2021-03-09T11:32:04.975549 5384 ] Result: cache miss
+[2021-03-09T11:32:04.975549 5384 ] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/stats.lock
+[2021-03-09T11:32:04.976548 5384 ] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/stats.lock
+[2021-03-09T11:32:12.540899 404  ] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/2/d/3f0890543fba1a8736864a95708340-5276277.o.tmp.stdout.LAPTOP-BNFR538A.404.1QBI6D
+[2021-03-09T11:32:12.540899 404  ] Unlink C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/2/d/3f0890543fba1a8736864a95708340-5276277.o.tmp.stderr.LAPTOP-BNFR538A.404.SS92c3
+[2021-03-09T11:32:12.543898 404  ] Copying static_src\CompiledCodeHelpers.o to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/2/d/3f0890543fba1a8736864a95708340-5276277.o via C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/2/d/3f0890543fba1a8736864a95708340-5276277.o.LAPTOP-BNFR538A.404.1Apgjk (uncompressed)
+[2021-03-09T11:32:12.544900 404  ] Stored in cache: static_src\CompiledCodeHelpers.o -> C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/2/d/3f0890543fba1a8736864a95708340-5276277.o (copied)
+[2021-03-09T11:32:12.548898 404  ] Added object file hash to C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/4/56c4135e71e15a72ce1a130557ad6e-57111.manifest
+[2021-03-09T11:32:12.549900 404  ] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/stats.lock
+[2021-03-09T11:32:12.602810 404  ] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/stats.lock
+[2021-03-09T11:32:12.604810 404  ] Result: cache miss
+[2021-03-09T11:32:12.604810 404  ] Acquired lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/2/stats.lock
+[2021-03-09T11:32:12.605855 404  ] Releasing lock C:\Users\blzza\AppData\Local\Nuitka\Nuitka\Cache\ccache/2/stats.lock
